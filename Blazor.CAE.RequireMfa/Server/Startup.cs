@@ -23,6 +23,7 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddScoped<MsGraphService>();
+        services.AddDistributedMemoryCache();
 
         services.AddAntiforgery(options =>
         {
@@ -35,13 +36,13 @@ public class Startup
         services.AddHttpClient();
         services.AddOptions();
 
-        var scopes = Configuration.GetValue<string>("DownstreamApi:Scopes");
+        var scopes = Configuration.GetValue<string>("Graph:Scopes");
         string[] initialScopes = scopes.Split(' ');
 
-        services.AddMicrosoftIdentityWebAppAuthentication(Configuration)
+        services.AddMicrosoftIdentityWebAppAuthentication(Configuration, "AzureAd", subscribeToOpenIdConnectMiddlewareDiagnosticsEvents: true)
             .EnableTokenAcquisitionToCallDownstreamApi(initialScopes)
-            .AddMicrosoftGraph("https://graph.microsoft.com/v1.0", scopes)
-            .AddInMemoryTokenCaches();
+            .AddMicrosoftGraph("https://graph.microsoft.com/beta", scopes)
+            .AddDistributedTokenCaches();
 
         services.AddControllersWithViews(options =>
             options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()));
