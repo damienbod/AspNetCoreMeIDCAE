@@ -8,14 +8,14 @@ namespace Blazor.CAE.RequireMfa.Server;
 
 public class CaeServices
 {
-    private readonly AuthContextClassReferencesOperations _authContextClassReferencesOperations;
+    private readonly AuthContextClassAdmin _authContextClassReferencesOperations;
     private readonly IDistributedCache _cache;
 
     private static readonly object _lock = new();
     private const int cacheExpirationInDays = 1;
 
     public CaeServices(IDistributedCache cache, 
-        AuthContextClassReferencesOperations authContextClassReferencesOperations)
+        AuthContextClassAdmin authContextClassReferencesOperations)
     {
         _authContextClassReferencesOperations = authContextClassReferencesOperations;
         _cache = cache;
@@ -39,7 +39,8 @@ public class CaeServices
         }
         else
         {
-            var existingAuthContexts = await _authContextClassReferencesOperations.ListAuthContextClassReferencesAsync();
+            var existingAuthContexts = await _authContextClassReferencesOperations
+                .ListAuthContextClassReferencesAsync();
 
             if (existingAuthContexts.Count > 0)
             {
