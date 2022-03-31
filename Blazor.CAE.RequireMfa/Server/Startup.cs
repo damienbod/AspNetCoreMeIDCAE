@@ -23,6 +23,11 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddScoped<MsGraphService>();
+
+        services.AddScoped<CAEAdminServices>();
+        services.AddScoped<GraphAuthContextAdmin>();
+        services.AddScoped<CAECliamsChallengeService>();
+
         services.AddDistributedMemoryCache();
 
         services.AddAntiforgery(options =>

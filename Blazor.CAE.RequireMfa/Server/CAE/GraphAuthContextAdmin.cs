@@ -9,13 +9,13 @@ using Microsoft.Identity.Web;
 
 namespace Blazor.CAE.RequireMfa.Server;
 
-public class AuthContextClassAdmin
+public class GraphAuthContextAdmin
 {
     private readonly GraphServiceClient _graphServiceClient;
-    private readonly ILogger<AuthContextClassAdmin> _logger;
+    private readonly ILogger<GraphAuthContextAdmin> _logger;
 
-    public AuthContextClassAdmin(
-        ILogger<AuthContextClassAdmin> logger, 
+    public GraphAuthContextAdmin(
+        ILogger<GraphAuthContextAdmin> logger, 
         GraphServiceClient graphServiceClient)
     {
         _graphServiceClient = graphServiceClient;

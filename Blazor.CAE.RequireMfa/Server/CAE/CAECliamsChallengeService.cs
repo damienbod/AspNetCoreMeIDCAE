@@ -6,13 +6,21 @@ using System.Linq;
 using System.Net;
 using System.Text;
 
-namespace Blazor.CAE.RequireMfa.Server.CAE
+namespace Blazor.CAE.RequireMfa.Server
 {
-    public class CaeValidate
+    /// <summary>
+    /// Claims challenges, claims requests, and client capabilities
+    /// 
+    /// https://docs.microsoft.com/en-us/azure/active-directory/develop/claims-challenge
+    /// 
+    /// Applications that use enhanced security features like Continuous Access Evaluation (CAE) 
+    /// and Conditional Access authentication context must be prepared to handle claims challenges.
+    /// </summary>
+    public class CAECliamsChallengeService
     {
         private readonly IConfiguration _configuration;
 
-        public CaeValidate(IConfiguration configuration)
+        public CAECliamsChallengeService(IConfiguration configuration)
         {
             _configuration = configuration;
         }
