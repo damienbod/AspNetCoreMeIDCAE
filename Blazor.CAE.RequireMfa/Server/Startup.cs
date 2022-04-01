@@ -27,6 +27,7 @@ public class Startup
         services.AddScoped<CAEAdminServices>();
         services.AddScoped<GraphAuthContextAdmin>();
         services.AddScoped<CAECliamsChallengeService>();
+        services.AddScoped<UserApiClientService>();
 
         services.AddDistributedMemoryCache();
 
@@ -45,7 +46,7 @@ public class Startup
         string[] initialScopes = scopes.Split(' ');
 
         services.AddMicrosoftIdentityWebAppAuthentication(Configuration, "AzureAd", subscribeToOpenIdConnectMiddlewareDiagnosticsEvents: true)
-            .EnableTokenAcquisitionToCallDownstreamApi(initialScopes)
+            .EnableTokenAcquisitionToCallDownstreamApi(new[] { "api://7c839e15-096b-4abb-a869-df9e6b34027c/access_as_user" })
             .AddMicrosoftGraph("https://graph.microsoft.com/beta", scopes)
             .AddDistributedTokenCaches();
 

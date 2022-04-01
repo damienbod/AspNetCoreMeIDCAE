@@ -4,46 +4,45 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Blazor.CAE.RequireMfa.Server.Services
+namespace Blazor.CAE.RequireMfa.Server.Services;
+
+public class MsGraphService
 {
-    public class MsGraphService
+    private readonly GraphServiceClient _graphServiceClient;
+
+    public MsGraphService(GraphServiceClient graphServiceClient)
     {
-        private readonly GraphServiceClient _graphServiceClient;
+        _graphServiceClient = graphServiceClient;
+    }
 
-        public MsGraphService(GraphServiceClient graphServiceClient)
-        {
-            _graphServiceClient = graphServiceClient;
-        }
+    public async Task<User> GetGraphApiUser()
+    {
+        return await _graphServiceClient
+            .Me
+            .Request()
+            .WithScopes("User.ReadBasic.All", "user.read")
+            .GetAsync();
+    }
 
-        public async Task<User> GetGraphApiUser()
+    public async Task<string> GetGraphApiProfilePhoto()
+    {
+        try
         {
-            return await _graphServiceClient
-                .Me
-                .Request()
-                .WithScopes("User.ReadBasic.All", "user.read")
-                .GetAsync();
-        }
-
-        public async Task<string> GetGraphApiProfilePhoto()
-        {
-            try
+            var photo = string.Empty;
+            // Get user photo
+            using (var photoStream = await _graphServiceClient
+                .Me.Photo.Content.Request()
+                .WithScopes("User.ReadBasic.All", "user.read").GetAsync())
             {
-                var photo = string.Empty;
-                // Get user photo
-                using (var photoStream = await _graphServiceClient
-                    .Me.Photo.Content.Request()
-                    .WithScopes("User.ReadBasic.All", "user.read").GetAsync())
-                {
-                    byte[] photoByte = ((MemoryStream)photoStream).ToArray();
-                    photo = Convert.ToBase64String(photoByte);
-                }
+                byte[] photoByte = ((MemoryStream)photoStream).ToArray();
+                photo = Convert.ToBase64String(photoByte);
+            }
 
-                return photo;
-            }
-            catch
-            {
-                return string.Empty;
-            }
+            return photo;
+        }
+        catch
+        {
+            return string.Empty;
         }
     }
 }
