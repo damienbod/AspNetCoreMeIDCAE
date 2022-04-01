@@ -10,9 +10,17 @@ namespace UserApiOne.Controllers;
 [Route("[controller]")]
 public class ApiForUserDataController : ControllerBase
 {
+    private readonly CAECliamsChallengeService _caeCliamsChallengeService;
+
+    public ApiForUserDataController(CAECliamsChallengeService caeCliamsChallengeService)
+    {
+        _caeCliamsChallengeService = caeCliamsChallengeService;
+    }
+
     [HttpGet]
     public IEnumerable<string> Get()
     {
+        _caeCliamsChallengeService.CheckForRequiredAuthContext(AuthContextId.C1, HttpContext);
         return new List<string> { "user API data 1", "user API data 2" };
     }
 }

@@ -30,7 +30,14 @@ public class Startup
         IdentityModelEventSource.ShowPII = true;
         JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
 
-        services.AddMicrosoftIdentityWebApiAuthentication(Configuration);
+        services.AddScoped<CAEAdminServices>();
+        services.AddScoped<GraphAuthContextAdmin>();
+        services.AddScoped<CAECliamsChallengeService>();
+
+        services.AddMicrosoftIdentityWebApiAuthentication(Configuration)
+            .EnableTokenAcquisitionToCallDownstreamApi()
+            .AddMicrosoftGraph(Configuration.GetSection("GraphBeta"))
+            .AddInMemoryTokenCaches();
 
         services.AddControllers(options =>
         {

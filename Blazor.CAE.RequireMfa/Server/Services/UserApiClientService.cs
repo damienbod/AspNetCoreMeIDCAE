@@ -23,8 +23,6 @@ public class UserApiClientService
 
     public async Task<IEnumerable<string>?> GetApiDataAsync()
     {
-        //_caeCliamsChallengeService.CheckForRequiredAuthContext(AuthContextId.C1, HttpContext);
-
         var client = _clientFactory.CreateClient();
 
         var scopes = new List<string> { "api://7c839e15-096b-4abb-a869-df9e6b34027c/access_as_user" };

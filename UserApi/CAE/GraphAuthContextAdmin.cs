@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Graph;
 using Microsoft.Identity.Web;
 
-namespace Blazor.CAE.RequireMfa.Server;
+namespace UserApiOne;
 
 public class GraphAuthContextAdmin
 {

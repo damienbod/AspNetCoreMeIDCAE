@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Blazor.CAE.RequireMfa.Server;
+namespace UserApiOne;
 
 /// <summary>
 /// Applications that use enhanced security features like Continuous Access Evaluation (CAE) 
