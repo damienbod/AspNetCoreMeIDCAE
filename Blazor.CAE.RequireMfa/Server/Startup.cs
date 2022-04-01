@@ -26,8 +26,7 @@ public class Startup
 
         services.AddScoped<CAEAdminServices>();
         services.AddScoped<GraphAuthContextAdmin>();
-        services.AddScoped<CAECliamsChallengeService>();
-        services.AddScoped<UserApiClientService>();
+        services.AddScoped<AdminApiClientService>();
 
         services.AddDistributedMemoryCache();
 

@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Blazor.CAE.RequireMfa.Server.Services;
 
-public class UserApiClientService
+public class AdminApiClientService
 {
     private readonly IHttpClientFactory _clientFactory;
     private readonly ITokenAcquisition _tokenAcquisition;
 
-    public UserApiClientService(
+    public AdminApiClientService(
         ITokenAcquisition tokenAcquisition,
         IHttpClientFactory clientFactory)
     {

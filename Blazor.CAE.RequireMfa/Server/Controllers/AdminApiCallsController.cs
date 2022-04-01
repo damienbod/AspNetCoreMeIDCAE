@@ -12,12 +12,12 @@ namespace BlazorAzureADWithApis.Server.Controllers;
 [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
 [AuthorizeForScopes(Scopes = new string[] { "api://7c839e15-096b-4abb-a869-df9e6b34027c/access_as_user" })]
 [ApiController]
-[Route("[controller]")]
-public class DelegatedUserApiCallsController : ControllerBase
+[Route("api/[controller]")]
+public class AdminApiCallsController : ControllerBase
 {
-    private readonly UserApiClientService _userApiClientService;
+    private readonly AdminApiClientService _userApiClientService;
 
-    public DelegatedUserApiCallsController(UserApiClientService userApiClientService)
+    public AdminApiCallsController(AdminApiClientService userApiClientService)
     {
         _userApiClientService = userApiClientService;
     }

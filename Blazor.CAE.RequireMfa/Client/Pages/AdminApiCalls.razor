@@ -1,8 +1,8 @@
-﻿@page "/delegateduserapicall"
+﻿@page "/adminapicall"
 @inject IHttpClientFactory httpClientFactory
 @inject IJSRuntime JSRuntime
 
-<h1>Data from Delegated User API</h1>
+<h1>Admin API CAE protected MFA required</h1>
 
 @if (apiData == null)
 {
@@ -37,6 +37,6 @@ else
         var client = httpClientFactory.CreateClient("authorizedClient");
         client.DefaultRequestHeaders.Add("X-XSRF-TOKEN", token);
 
-        apiData = await client.GetFromJsonAsync<string[]>("DelegatedUserApiCalls");
+        apiData = await client.GetFromJsonAsync<string[]>("api/AdminApiCalls");
     }
 }

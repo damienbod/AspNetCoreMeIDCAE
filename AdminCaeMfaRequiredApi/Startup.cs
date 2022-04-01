@@ -12,7 +12,7 @@ using System;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Logging;
 
-namespace UserApiOne;
+namespace AdminCaeMfaRequiredApi;
 
 public class Startup
 {
@@ -30,8 +30,6 @@ public class Startup
         IdentityModelEventSource.ShowPII = true;
         JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
 
-        services.AddScoped<CAEAdminServices>();
-        services.AddScoped<GraphAuthContextAdmin>();
         services.AddScoped<CAECliamsChallengeService>();
 
         services.AddMicrosoftIdentityWebApiAuthentication(Configuration)
