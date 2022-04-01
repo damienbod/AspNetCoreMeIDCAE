@@ -20,7 +20,9 @@ public class ApiForUserDataController : ControllerBase
     [HttpGet]
     public IEnumerable<string> Get()
     {
-        //_caeCliamsChallengeService.CheckForRequiredAuthContext(AuthContextId.C1, HttpContext);
+        // returns unauthorized exception with WWW-Authenticate header if CAE claim missing in access token
+        // handled in the caller to challenge
+        _caeCliamsChallengeService.CheckForRequiredAuthContext(AuthContextId.C1, HttpContext);
         return new List<string> { "user API data 1", "user API data 2" };
     }
 }
