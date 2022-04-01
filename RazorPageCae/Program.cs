@@ -9,8 +9,6 @@ using RazorPageCae;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<MsGraphService>();
-builder.Services.AddScoped<CAEAdminServices>();
-builder.Services.AddScoped<GraphAuthContextAdmin>();
 builder.Services.AddScoped<AdminApiClientService>();
 
 builder.Services.AddMicrosoftIdentityWebAppAuthentication(builder.Configuration, "AzureAd", subscribeToOpenIdConnectMiddlewareDiagnosticsEvents: true)

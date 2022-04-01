@@ -1,4 +1,4 @@
-# Blazor CAE Azure AD
+# Razor Page Azure AD CAE
 
 # Links
 
