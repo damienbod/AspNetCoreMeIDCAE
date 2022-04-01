@@ -6,6 +6,7 @@ using Blazor.CAE.RequireMfa.Server.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Client;
 using Microsoft.Identity.Web;
 
 namespace BlazorAzureADWithApis.Server.Controllers;
@@ -39,7 +40,8 @@ public class AdminApiCallsController : ControllerBase
             // Challenges the user if exception is thrown from Web API.
             try
             {
-                var claimChallenge = ExtractAuthenticationHeader.ExtractHeaderValues(hex);
+                var claimChallenge = WwwAuthenticateParameters.GetClaimChallengeFromResponseHeaders(hex.Headers);
+
                 _consentHandler.ChallengeUser(new string[] { "user.read" }, claimChallenge);
 
                 return Array.Empty<string>();
