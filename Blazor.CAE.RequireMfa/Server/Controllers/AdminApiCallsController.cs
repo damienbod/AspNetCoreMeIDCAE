@@ -45,7 +45,6 @@ public class AdminApiCallsController : ControllerBase
                 _consentHandler.ChallengeUser(new string[] { "user.read" }, claimChallenge);
 
                 return Array.Empty<string>();
-
             }
             catch (Exception ex)
             {
