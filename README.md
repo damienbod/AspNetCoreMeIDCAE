@@ -11,3 +11,5 @@
  https://docs.microsoft.com/en-us/azure/active-directory/develop/claims-challenge
 
  https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-conditional-access-dev-guide
+
+ https://www.youtube.com/watch?v=_iO7CfoktTY
