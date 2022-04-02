@@ -23,6 +23,6 @@ public class ApiForUserDataController : ControllerBase
         // returns unauthorized exception with WWW-Authenticate header if CAE claim missing in access token
         // handled in the caller to challenge
         _caeCliamsChallengeService.CheckForRequiredAuthContext(AuthContextId.C1, HttpContext);
-        return new List<string> { "user API data 1", "user API data 2" };
+        return new List<string> { "admin API CAE protected data 1", "admin API CAE protected  data 2" };
     }
 }
