@@ -1,6 +1,6 @@
 [![.NET](https://github.com/damienbod/AspNetCoreAzureADCAE/actions/workflows/dotnet.yml/badge.svg)](https://github.com/damienbod/AspNetCoreAzureADCAE/actions/workflows/dotnet.yml)
 
-# Razor Page Azure AD CAE
+# Razor Page Azure AD Continuous Access Evaluation
 
 # Links
 
