@@ -21,11 +21,14 @@ namespace RazorPageCae.Pages
             _logger = logger;
         }
 
+        [BindProperty]
+        public IEnumerable<string>? Data { get; private set; }
+
         public async Task<IActionResult> OnGet()
         {
             try
             {
-                var data = await _userApiClientService.GetApiDataAsync();
+                Data = await _userApiClientService.GetApiDataAsync();
                 return Page();
             }
             catch (WebApiMsalUiRequiredException hex)

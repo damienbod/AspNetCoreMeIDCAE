@@ -7,3 +7,16 @@
 <div class="text-center">
    <p>CAE Admin request get api data</p>
 </div>
+
+<h4>Data:</h4>
+<ul>
+@{
+    if(@Model.Data != null)
+    {
+        foreach(var item in @Model.Data)
+        {
+                <li>@item</li>
+        }
+    }    
+}
+</ul>
