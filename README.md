@@ -2,6 +2,51 @@
 
 # Razor Page Azure AD Continuous Access Evaluation
 
+Azure app registration manifest
+
+```json
+"optionalClaims": {
+	"idToken": [],
+	"accessToken": [
+		{
+			"name": "xms_cc",
+			"source": null,
+			"essential": false,
+			"additionalProperties": []
+		}
+	],
+	"saml2Token": []
+},
+```
+
+claims challenge returned from the API
+
+```json
+{"access_token":{"acrs":{"essential":true,"value":"c1"}}}
+```
+
+access token
+
+```csharp
+{
+  "aud": "7c839e15-096b-4abb-a869-df9e6b34027c",
+  "iss": "https://login.microsoftonline.com/5698af84-5720-4ff0-bdc3-9d9195314244/v2.0",
+  "iat": 1648841224,
+  "nbf": 1648841224,
+  "exp": 1648845383,
+  "acrs": [
+    "c1"
+  ],
+  "azp": "7c839e15-096b-4abb-a869-df9e6b34027c",
+  "azpacr": "1",
+  "ver": "2.0",
+  "xms_cc": [
+    "cp1"
+  ],
+  // plus more claims
+}
+```
+
 # Links
 
  https://github.com/Azure-Samples/ms-identity-ca-auth-context
