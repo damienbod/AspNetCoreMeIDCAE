@@ -11,10 +11,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<MsGraphService>();
 builder.Services.AddScoped<AdminApiClientService>();
 
+builder.Services.AddDistributedMemoryCache();
 builder.Services.AddMicrosoftIdentityWebAppAuthentication(builder.Configuration, "AzureAd", subscribeToOpenIdConnectMiddlewareDiagnosticsEvents: true)
     .EnableTokenAcquisitionToCallDownstreamApi(new[] { "api://7c839e15-096b-4abb-a869-df9e6b34027c/access_as_user" })
     .AddMicrosoftGraph(builder.Configuration.GetSection("GraphBeta"))
-    .AddInMemoryTokenCaches();
+    .AddDistributedTokenCaches();
 
 builder.Services.AddAuthorization(options =>
 {

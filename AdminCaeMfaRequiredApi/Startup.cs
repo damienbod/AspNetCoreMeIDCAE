@@ -32,10 +32,11 @@ public class Startup
 
         services.AddScoped<CAECliamsChallengeService>();
 
+        services.AddDistributedMemoryCache();
         services.AddMicrosoftIdentityWebApiAuthentication(Configuration)
             .EnableTokenAcquisitionToCallDownstreamApi()
             .AddMicrosoftGraph(Configuration.GetSection("GraphBeta"))
-            .AddInMemoryTokenCaches();
+            .AddDistributedTokenCaches();
 
         services.AddControllers(options =>
         {
