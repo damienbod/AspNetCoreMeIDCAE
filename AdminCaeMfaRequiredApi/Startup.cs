@@ -88,7 +88,7 @@ public class Startup
 
             c.SwaggerDoc("v1", new OpenApiInfo
             {
-                Title = "User API One",
+                Title = "Admin AAD CAE protected API",
                 Version = "v1",
                 Description = "User API One",
                 Contact = new OpenApiContact
