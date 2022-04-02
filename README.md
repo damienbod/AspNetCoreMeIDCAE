@@ -10,6 +10,8 @@
 
  https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview
 
+ https://github.com/Azure-Samples/ms-identity-dotnetcore-daemon-graph-cae
+
  https://docs.microsoft.com/en-us/azure/active-directory/develop/developer-guide-conditional-access-authentication-context
 
  https://docs.microsoft.com/en-us/azure/active-directory/develop/claims-challenge
