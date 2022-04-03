@@ -41,6 +41,7 @@ public class AdminApiClientService
             return payload;
         }
 
+        // This exception can be used to handle a claims challenge
         throw new WebApiMsalUiRequiredException($"Unexpected status code in the HttpResponseMessage: {response.StatusCode}.", response);
     }
 }
