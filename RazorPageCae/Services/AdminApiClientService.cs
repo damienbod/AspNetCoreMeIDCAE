@@ -18,8 +18,8 @@ public class AdminApiClientService
     {
         _clientFactory = clientFactory;
         _tokenAcquisition = tokenAcquisition;
-        _adminApiBaseUrl = configuration["AdminApi:Url"];
-        _adminApiScope = configuration["AdminApi:Scope"];
+        _adminApiBaseUrl = configuration.GetSection("AdminApi")["BaseUrl"];
+        _adminApiScope = configuration.GetSection("AdminApi")["Scope"];
     }
 
     public async Task<IEnumerable<string>?> GetApiDataAsync()

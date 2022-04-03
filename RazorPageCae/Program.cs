@@ -1,7 +1,3 @@
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.OpenIdConnect;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
 using RazorPageCae;
@@ -13,7 +9,7 @@ builder.Services.AddScoped<AdminApiClientService>();
 
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddMicrosoftIdentityWebAppAuthentication(builder.Configuration, "AzureAd", subscribeToOpenIdConnectMiddlewareDiagnosticsEvents: true)
-    .EnableTokenAcquisitionToCallDownstreamApi(new[] { "api://7c839e15-096b-4abb-a869-df9e6b34027c/access_as_user" })
+    .EnableTokenAcquisitionToCallDownstreamApi(new[] { builder.Configuration.GetSection("AdminApi")["Scope"] })
     .AddMicrosoftGraph(builder.Configuration.GetSection("GraphBeta"))
     .AddDistributedTokenCaches();
 

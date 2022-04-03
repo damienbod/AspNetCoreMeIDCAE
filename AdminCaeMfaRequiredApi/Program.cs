@@ -1,7 +1,5 @@
 using AdminCaeMfaRequiredApi;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.Authorization;
@@ -24,8 +22,8 @@ builder.Services.AddMicrosoftIdentityWebApiAuthentication(builder.Configuration)
     .AddDistributedTokenCaches();
 
 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
-IdentityModelEventSource.ShowPII = true;
 JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
+//IdentityModelEventSource.ShowPII = true;
 
 builder.Services.AddControllers(options =>
 {
@@ -41,7 +39,7 @@ builder.Services.AddAuthorization(options =>
     {
         // Validate id of application for which the token was created
         // In this case the UI application 
-        validateAccessTokenPolicy.RequireClaim("azp", "7c839e15-096b-4abb-a869-df9e6b34027c");
+        validateAccessTokenPolicy.RequireClaim("azp", builder.Configuration["AzpValidClientId"]);
 
         // only allow tokens which used "Private key JWT Client authentication"
         // // https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens
