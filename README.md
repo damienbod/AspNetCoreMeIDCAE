@@ -2,7 +2,11 @@
 
 # Razor Page Azure AD Continuous Access Evaluation
 
-Azure app registration manifest
+# History 
+
+2022-04-03 initial version
+
+## Azure app registration manifest
 
 ```json
 "optionalClaims": {
@@ -19,13 +23,13 @@ Azure app registration manifest
 },
 ```
 
-claims challenge returned from the API
+## Claims challenge returned from the API
 
 ```json
 {"access_token":{"acrs":{"essential":true,"value":"c1"}}}
 ```
 
-access token
+## Access token
 
 ```csharp
 {
@@ -47,7 +51,7 @@ access token
 }
 ```
 
-# Links
+## Links
 
  https://github.com/Azure-Samples/ms-identity-ca-auth-context
 
