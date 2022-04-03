@@ -1,10 +1,6 @@
 ﻿using Microsoft.Identity.Web;
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace RazorPageCae;
 
@@ -12,23 +8,28 @@ public class AdminApiClientService
 {
     private readonly IHttpClientFactory _clientFactory;
     private readonly ITokenAcquisition _tokenAcquisition;
+    private readonly string _adminApiBaseUrl;
+    private readonly string _adminApiScope;
 
     public AdminApiClientService(
         ITokenAcquisition tokenAcquisition,
-        IHttpClientFactory clientFactory)
+        IHttpClientFactory clientFactory,
+        IConfiguration configuration)
     {
         _clientFactory = clientFactory;
         _tokenAcquisition = tokenAcquisition;
+        _adminApiBaseUrl = configuration["AdminApi:Url"];
+        _adminApiScope = configuration["AdminApi:Scope"];
     }
 
     public async Task<IEnumerable<string>?> GetApiDataAsync()
     {
         var client = _clientFactory.CreateClient();
 
-        var scopes = new List<string> { "api://7c839e15-096b-4abb-a869-df9e6b34027c/access_as_user" };
+        var scopes = new List<string> { _adminApiScope };
         var accessToken = await _tokenAcquisition.GetAccessTokenForUserAsync(scopes);
 
-        client.BaseAddress = new Uri("https://localhost:44395");
+        client.BaseAddress = new Uri(_adminApiBaseUrl);
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
