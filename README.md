@@ -4,6 +4,8 @@
 
 # History 
 
+2022-04-05 Added CAE admin tool using Microsoft Graph
+
 2022-04-03 initial version
 
 ## Azure app registration manifest
