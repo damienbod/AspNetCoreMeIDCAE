@@ -2,6 +2,10 @@
 
 # Razor Page Azure AD Continuous Access Evaluation
 
+Implement Azure AD Continuous Access Evaluation in an ASP.NET Core Razor Page app using a Web API
+
+https://damienbod.com/2022/04/20/implement-azure-ad-continuous-access-evaluation-in-an-asp-net-core-razor-page-app-using-a-web-api/
+
 # History 
 
 2022-04-16 Update packages
