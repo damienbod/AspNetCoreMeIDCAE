@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Net;
+using System.Text;
 using System.Threading.Tasks;
 using Blazor.CAE.RequireMfa.Server;
 using Blazor.CAE.RequireMfa.Server.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
 using Microsoft.Identity.Web;
@@ -29,34 +33,36 @@ public class AdminApiCallsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IEnumerable<string>?> Get()
+    public async Task<IActionResult> Get()
     {
-        return await _userApiClientService.GetApiDataAsync();
+        try
+        {
+            return Ok(await _userApiClientService.GetApiDataAsync());
+        }
+        catch (WebApiMsalUiRequiredException hex)
+        {
+            var claimChallenge = WwwAuthenticateParameters.GetClaimChallengeFromResponseHeaders(hex.Headers);
+            return Unauthorized(claimChallenge);
 
-        // TODO move this logic to the client
-        //try
-        //{
-        //    return await _userApiClientService.GetApiDataAsync();
-        //}
-        //catch (WebApiMsalUiRequiredException hex)
-        //{
-        //    // Challenges the user if exception is thrown from Web API.
-        //    try
-        //    {
-        //        var claimChallenge = WwwAuthenticateParameters.GetClaimChallengeFromResponseHeaders(hex.Headers);
+            // TO implement in the client
+            // Challenges the user if exception is thrown from Web API.
+            //try
+            //{
+            //    var claimChallenge = WwwAuthenticateParameters.GetClaimChallengeFromResponseHeaders(hex.Headers);
 
-        //        _consentHandler.ChallengeUser(new string[] { "user.read" }, claimChallenge);
+            //    _consentHandler.ChallengeUser(new string[] { "user.read" }, claimChallenge);
 
-        //        return Array.Empty<string>();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _consentHandler.HandleException(ex);
-        //    }
+            //    return Array.Empty<string>();
+            //}
+            //catch (Exception ex)
+            //{
+            //    _consentHandler.HandleException(ex);
+            //}
 
-        //    Console.WriteLine(hex.Message);
-        //}
+            //    Console.WriteLine(hex.Message);
+            //}        return await _userApiClientService.GetApiDataAsync();
+        }
 
-        return Array.Empty<string>();
+        return Ok(Array.Empty<string>());
     }
 }

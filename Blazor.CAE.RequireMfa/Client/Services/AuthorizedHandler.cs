@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -33,6 +34,8 @@ public class AuthorizedHandler : DelegatingHandler
 
         if (responseMessage.StatusCode == HttpStatusCode.Unauthorized)
         {
+            var content = await responseMessage.Content.ReadAsStringAsync();
+
             // if server returned 401 Unauthorized, redirect to login page
             _authenticationStateProvider.SignIn();
         }
