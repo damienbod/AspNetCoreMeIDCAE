@@ -23,13 +23,10 @@ namespace BlazorAzureADWithApis.Server.Controllers;
 public class AdminApiCallsController : ControllerBase
 {
     private readonly AdminApiClientService _userApiClientService;
-    private readonly MicrosoftIdentityConsentAndConditionalAccessHandler _consentHandler;
-
-    public AdminApiCallsController(AdminApiClientService userApiClientService,
-        MicrosoftIdentityConsentAndConditionalAccessHandler consentHandler)
+   
+    public AdminApiCallsController(AdminApiClientService userApiClientService)
     {
         _userApiClientService = userApiClientService;
-        _consentHandler = consentHandler;
     }
 
     [HttpGet]
