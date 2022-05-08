@@ -31,28 +31,31 @@ public class AdminApiCallsController : ControllerBase
     [HttpGet]
     public async Task<IEnumerable<string>?> Get()
     {
-        try
-        {
-            return await _userApiClientService.GetApiDataAsync();
-        }
-        catch (WebApiMsalUiRequiredException hex)
-        {
-            // Challenges the user if exception is thrown from Web API.
-            try
-            {
-                var claimChallenge = WwwAuthenticateParameters.GetClaimChallengeFromResponseHeaders(hex.Headers);
+        return await _userApiClientService.GetApiDataAsync();
 
-                _consentHandler.ChallengeUser(new string[] { "user.read" }, claimChallenge);
+        // TODO move this logic to the client
+        //try
+        //{
+        //    return await _userApiClientService.GetApiDataAsync();
+        //}
+        //catch (WebApiMsalUiRequiredException hex)
+        //{
+        //    // Challenges the user if exception is thrown from Web API.
+        //    try
+        //    {
+        //        var claimChallenge = WwwAuthenticateParameters.GetClaimChallengeFromResponseHeaders(hex.Headers);
 
-                return Array.Empty<string>();
-            }
-            catch (Exception ex)
-            {
-                _consentHandler.HandleException(ex);
-            }
+        //        _consentHandler.ChallengeUser(new string[] { "user.read" }, claimChallenge);
 
-            Console.WriteLine(hex.Message);
-        }
+        //        return Array.Empty<string>();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _consentHandler.HandleException(ex);
+        //    }
+
+        //    Console.WriteLine(hex.Message);
+        //}
 
         return Array.Empty<string>();
     }
