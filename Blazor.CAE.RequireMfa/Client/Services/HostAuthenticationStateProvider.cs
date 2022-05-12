@@ -16,7 +16,6 @@ public class HostAuthenticationStateProvider : AuthenticationStateProvider
     private static readonly TimeSpan _userCacheRefreshInterval = TimeSpan.FromSeconds(60);
 
     private const string LogInPath = "api/Account/Login";
-    private const string CaeStepUpPath = "api/Account/Cae";
     private const string LogOutPath = "api/Account/Logout";
 
     private readonly NavigationManager _navigation;
@@ -46,10 +45,9 @@ public class HostAuthenticationStateProvider : AuthenticationStateProvider
         _navigation.NavigateTo(logInUrl.ToString(), true);
     }
 
-    public void CaeStepUp(string claimChallenge)
+    public void CaeStepUp(string claimsChallenge)
     {
-        var encodedClaimChallenge = Uri.EscapeDataString(claimChallenge);
-        var logInUrl = _navigation.ToAbsoluteUri($"{CaeStepUpPath}?claimChallenge={claimChallenge}");
+        var logInUrl = _navigation.ToAbsoluteUri($"{LogInPath}?claimsChallenge={claimsChallenge}");
         _navigation.NavigateTo(logInUrl.ToString(), true);
     }
 

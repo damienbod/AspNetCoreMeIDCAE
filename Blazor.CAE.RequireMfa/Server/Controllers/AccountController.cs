@@ -20,28 +20,19 @@ public class AccountController : ControllerBase
     }
 
     [HttpGet("Login")]
-    public ActionResult Login(string returnUrl)
+    public ActionResult Login(string returnUrl, string? claimsChallenge)
     {
-        return Challenge(new AuthenticationProperties
-        {
-            RedirectUri = !string.IsNullOrEmpty(returnUrl) ? returnUrl : "/"
-        });
-    }
+        var claims = "{\"access_token\":{\"acrs\":{\"essential\":true,\"value\":\"c1\"}}}";
+        var redirectUri = !string.IsNullOrEmpty(returnUrl) ? returnUrl : "/";
 
-    [HttpGet("Cae")]
-    public ActionResult Cae(string claimChallenge)
-    {
-        try
-        {
-            _consentHandler.ChallengeUser(new string[] { "user.read" }, claimChallenge);
-            return Ok();
+        var properties = new AuthenticationProperties { RedirectUri = redirectUri };
 
-        }
-        catch (Exception ex)
+        if(claimsChallenge != null)
         {
-            _consentHandler.HandleException(ex);
-            return Ok();
+            properties.Items["claims"] = claims;
         }
+
+        return Challenge(properties);
     }
 
     // [ValidateAntiForgeryToken] // not needed explicitly due the the Auto global definition.
