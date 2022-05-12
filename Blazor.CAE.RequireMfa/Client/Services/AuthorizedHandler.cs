@@ -11,13 +11,10 @@ namespace Blazor.CAE.RequireMfa.Client.Services;
 public class AuthorizedHandler : DelegatingHandler
 {
     private readonly HostAuthenticationStateProvider _authenticationStateProvider;
-    private readonly NavigationManager _navigation;
 
-    public AuthorizedHandler(HostAuthenticationStateProvider authenticationStateProvider,
-          NavigationManager navigation)
+    public AuthorizedHandler(HostAuthenticationStateProvider authenticationStateProvider)
     {
         _authenticationStateProvider = authenticationStateProvider;
-        _navigation = navigation;
     }
 
     protected override async Task<HttpResponseMessage> SendAsync(
@@ -43,7 +40,6 @@ public class AuthorizedHandler : DelegatingHandler
             // if server returned 401 Unauthorized, redirect to login page
             if (content != null && content.Contains("acr")) // CAE
             {
-                //var uri = $"/{_navigation.ToBaseRelativePath(_navigation.Uri)}";
                 _authenticationStateProvider.CaeStepUp(content);
             }
             else // standard
