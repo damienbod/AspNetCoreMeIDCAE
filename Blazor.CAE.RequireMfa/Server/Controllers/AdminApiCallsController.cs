@@ -35,24 +35,6 @@ public class AdminApiCallsController : ControllerBase
         {
             var claimChallenge = WwwAuthenticateParameters.GetClaimChallengeFromResponseHeaders(hex.Headers);
             return Unauthorized(claimChallenge);
-
-            // TO implement in the client
-            // Challenges the user if exception is thrown from Web API.
-            //try
-            //{
-            //    var claimChallenge = WwwAuthenticateParameters.GetClaimChallengeFromResponseHeaders(hex.Headers);
-
-            //    _consentHandler.ChallengeUser(new string[] { "user.read" }, claimChallenge);
-
-            //    return Array.Empty<string>();
-            //}
-            //catch (Exception ex)
-            //{
-            //    _consentHandler.HandleException(ex);
-            //}
-
-            //    Console.WriteLine(hex.Message);
-            //}        return await _userApiClientService.GetApiDataAsync();
         }
 
         return Ok(Array.Empty<string>());

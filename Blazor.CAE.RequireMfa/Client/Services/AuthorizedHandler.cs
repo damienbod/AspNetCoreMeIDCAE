@@ -36,10 +36,15 @@ public class AuthorizedHandler : DelegatingHandler
         {
             var content = await responseMessage.Content.ReadAsStringAsync();
 
-            _authenticationStateProvider.CaeStepUp(content);
-            
             // if server returned 401 Unauthorized, redirect to login page
-            _authenticationStateProvider.SignIn();
+            if (content != null && content.Contains("acr")) // CAE
+            {
+                _authenticationStateProvider.CaeStepUp(content);
+            }
+            else // standard
+            {
+                _authenticationStateProvider.SignIn();
+            }
         }
 
         return responseMessage;
