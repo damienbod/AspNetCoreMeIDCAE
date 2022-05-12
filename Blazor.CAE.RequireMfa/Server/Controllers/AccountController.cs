@@ -20,8 +20,9 @@ public class AccountController : ControllerBase
     }
 
     [HttpGet("Login")]
-    public ActionResult Login(string returnUrl, string? claimsChallenge)
+    public ActionResult Login(string? returnUrl, string? claimsChallenge)
     {
+        // TODO read claims from query parameter
         var claims = "{\"access_token\":{\"acrs\":{\"essential\":true,\"value\":\"c1\"}}}";
         var redirectUri = !string.IsNullOrEmpty(returnUrl) ? returnUrl : "/";
 

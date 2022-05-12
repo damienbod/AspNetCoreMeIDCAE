@@ -49,7 +49,7 @@ public class HostAuthenticationStateProvider : AuthenticationStateProvider
     {
         var returnUrl = customReturnUrl != null ? _navigation.ToAbsoluteUri(customReturnUrl).ToString() : null;
         var encodedReturnUrl = Uri.EscapeDataString(returnUrl ?? _navigation.Uri);
-        var logInUrl = _navigation.ToAbsoluteUri($"{LogInPath}?claimsChallenge={claimsChallenge};returnUrl={encodedReturnUrl}");
+        var logInUrl = _navigation.ToAbsoluteUri($"{LogInPath}?claimsChallenge={claimsChallenge}&returnUrl={encodedReturnUrl}");
         _navigation.NavigateTo(logInUrl.ToString(), true);
     }
 
