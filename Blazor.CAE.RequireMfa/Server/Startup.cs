@@ -24,8 +24,6 @@ public class Startup
     {
         services.AddScoped<MsGraphService>();
 
-        services.AddScoped<CAEAdminServices>();
-        services.AddScoped<GraphAuthContextAdmin>();
         services.AddScoped<AdminApiClientService>();
 
         services.AddDistributedMemoryCache();
