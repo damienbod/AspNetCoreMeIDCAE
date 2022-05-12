@@ -23,14 +23,17 @@ public class AccountController : ControllerBase
     public ActionResult Login(string? returnUrl, string? claimsChallenge)
     {
         // TODO read claims from query parameter
-        var claims = "{\"access_token\":{\"acrs\":{\"essential\":true,\"value\":\"c1\"}}}";
+        //var claims = "{\"access_token\":{\"acrs\":{\"essential\":true,\"value\":\"c1\"}}}";
         var redirectUri = !string.IsNullOrEmpty(returnUrl) ? returnUrl : "/";
 
         var properties = new AuthenticationProperties { RedirectUri = redirectUri };
 
         if(claimsChallenge != null)
         {
-            properties.Items["claims"] = claims;
+            string jsonString = claimsChallenge.Replace("\\", "")
+                .Trim(new char[1] { '"' });
+
+            properties.Items["claims"] = jsonString;
         }
 
         return Challenge(properties);

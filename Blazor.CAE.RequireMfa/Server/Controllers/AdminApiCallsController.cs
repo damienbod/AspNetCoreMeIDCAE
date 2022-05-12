@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Blazor.CAE.RequireMfa.Server;
 using Blazor.CAE.RequireMfa.Server.Services;
@@ -36,7 +37,5 @@ public class AdminApiCallsController : ControllerBase
             var claimChallenge = WwwAuthenticateParameters.GetClaimChallengeFromResponseHeaders(hex.Headers);
             return Unauthorized(claimChallenge);
         }
-
-        return Ok(Array.Empty<string>());
     }
 }
