@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Identity.Web;
 
 namespace Blazor.CAE.RequireMfa.Server.Controllers;
 
@@ -14,8 +12,8 @@ namespace Blazor.CAE.RequireMfa.Server.Controllers;
 public class DirectApiController : ControllerBase
 {
     [HttpGet]
-    public IEnumerable<string> Get()
+    public IActionResult Get()
     {
-        return new List<string> { "some data", "more data", "loads of data" };
+        return Ok(new List<string> { "some data", "more data", "loads of data" });
     }
 }
