@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.CAE.RequireMfa.Clien
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.CAE.RequireMfa.Server", "CaeApi\BlazorUsingCaeApi\Server\Blazor.CAE.RequireMfa.Server.csproj", "{D420651B-E3E7-4460-A73C-AD5E3CD6A9A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorCaeStandalone", "RazorCaeStandalone\RazorCaeStandalone.csproj", "{A940C45E-7B84-4522-AD0D-51468AECF30A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{D420651B-E3E7-4460-A73C-AD5E3CD6A9A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D420651B-E3E7-4460-A73C-AD5E3CD6A9A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D420651B-E3E7-4460-A73C-AD5E3CD6A9A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A940C45E-7B84-4522-AD0D-51468AECF30A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A940C45E-7B84-4522-AD0D-51468AECF30A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A940C45E-7B84-4522-AD0D-51468AECF30A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A940C45E-7B84-4522-AD0D-51468AECF30A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
