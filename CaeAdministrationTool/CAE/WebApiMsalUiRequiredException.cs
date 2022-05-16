@@ -1,7 +1,7 @@
 ﻿using System.Net.Http.Headers;
 using System.Net;
 
-namespace CaeAdministrationTool;
+namespace CaeAdministrationTool.CAE;
 
 /// <summary>
 /// Specialized excpetion handler for the TodoListService

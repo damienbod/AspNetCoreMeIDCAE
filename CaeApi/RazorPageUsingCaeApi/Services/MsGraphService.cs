@@ -1,7 +1,7 @@
 ﻿using Microsoft.Graph;
 using Microsoft.Identity.Web;
 
-namespace RazorPageCae;
+namespace RazorPageUsingCaeApi.Services;
 
 public class MsGraphService
 {

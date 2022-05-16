@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Blazor.CAE.RequireMfa.Server;
+using Blazor.CAE.RequireMfa.Server.CAE;
 using Blazor.CAE.RequireMfa.Server.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
 using Microsoft.Identity.Web;
 
-namespace BlazorAzureADWithApis.Server.Controllers;
+namespace Blazor.CAE.RequireMfa.Server.Controllers;
 
 [ValidateAntiForgeryToken]
 [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
@@ -19,7 +19,7 @@ namespace BlazorAzureADWithApis.Server.Controllers;
 public class AdminApiCallsController : ControllerBase
 {
     private readonly AdminApiClientService _userApiClientService;
-   
+
     public AdminApiCallsController(AdminApiClientService userApiClientService)
     {
         _userApiClientService = userApiClientService;

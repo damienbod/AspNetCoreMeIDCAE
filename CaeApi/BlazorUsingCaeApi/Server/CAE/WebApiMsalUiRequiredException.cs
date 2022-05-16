@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net;
 
-namespace Blazor.CAE.RequireMfa.Server;
+namespace Blazor.CAE.RequireMfa.Server.CAE;
 
 /// <summary>
 /// Specialized excpetion handler for the TodoListService

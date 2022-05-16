@@ -1,4 +1,4 @@
-﻿namespace AdminCaeMfaRequiredApi;
+﻿namespace CaeApi.CAE;
 
 public static class AuthContextId
 {

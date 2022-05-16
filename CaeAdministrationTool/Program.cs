@@ -1,4 +1,4 @@
-using CaeAdministrationTool;
+using CaeAdministrationTool.CAE;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;

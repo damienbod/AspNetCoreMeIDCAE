@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using CaeApi.CAE;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AdminCaeMfaRequiredApi.Controllers;
+namespace CaeApi.Controllers;
 
 [Authorize(Policy = "ValidateAccessTokenPolicy", AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 [ApiController]

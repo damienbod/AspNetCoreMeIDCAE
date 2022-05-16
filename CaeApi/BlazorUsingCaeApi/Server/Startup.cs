@@ -1,3 +1,4 @@
+using Blazor.CAE.RequireMfa.Server.ApiHandling;
 using Blazor.CAE.RequireMfa.Server.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -54,9 +55,6 @@ public class Startup
             //    .Build();
             //options.Filters.Add(new AuthorizeFilter(policy));
         }).AddMicrosoftIdentityUI();
-
-        services.AddServerSideBlazor()
-          .AddMicrosoftIdentityConsentHandler();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

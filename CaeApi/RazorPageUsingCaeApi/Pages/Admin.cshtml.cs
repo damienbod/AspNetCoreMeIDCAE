@@ -1,23 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Identity.Client;
-using Microsoft.Identity.Web;
+using RazorPageUsingCaeApi.CAE;
+using RazorPageUsingCaeApi.Services;
 
-namespace RazorPageCae.Pages
+namespace RazorPageUsingCaeApi.Pages
 {
     public class AdminModel : PageModel
     {
         private readonly ILogger<AdminModel> _logger;
         private readonly AdminApiClientService _userApiClientService;
 
-        private readonly MicrosoftIdentityConsentAndConditionalAccessHandler _consentHandler;
-
         public AdminModel(AdminApiClientService userApiClientService,
-            ILogger<AdminModel> logger,
-            MicrosoftIdentityConsentAndConditionalAccessHandler consentHandler)
+            ILogger<AdminModel> logger)
         {
             _userApiClientService = userApiClientService;
-            _consentHandler = consentHandler;
             _logger = logger;
         }
 
@@ -33,24 +31,21 @@ namespace RazorPageCae.Pages
             }
             catch (WebApiMsalUiRequiredException hex)
             {
-                // Challenges the user if exception is thrown from Web API.
-                try
-                {
-                    var claimChallenge = WwwAuthenticateParameters.GetClaimChallengeFromResponseHeaders(hex.Headers);
-
-                    _consentHandler.ChallengeUser(new string[] { "user.read" }, claimChallenge);
-
-                    return Page();
-                }
-                catch (Exception ex)
-                {
-                    _consentHandler.HandleException(ex);
-                }
-
+                var claimsChallenge = WwwAuthenticateParameters.GetClaimChallengeFromResponseHeaders(hex.Headers);
                 _logger.LogInformation("{hexMessage}", hex.Message);
-            }
 
-            return Page();
+                var properties = new AuthenticationProperties { RedirectUri = "/admin" };
+
+                if (claimsChallenge != null)
+                {
+                    string jsonString = claimsChallenge.Replace("\\", "")
+                        .Trim(new char[1] { '"' });
+
+                    properties.Items["claims"] = jsonString;
+                }
+
+                return Challenge(properties);
+            }
         }
     }
 }

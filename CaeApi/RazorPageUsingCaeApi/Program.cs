@@ -1,6 +1,6 @@
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
-using RazorPageCae;
+using RazorPageUsingCaeApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

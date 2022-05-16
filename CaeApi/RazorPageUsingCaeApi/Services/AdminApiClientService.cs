@@ -1,8 +1,9 @@
 ﻿using Microsoft.Identity.Web;
+using RazorPageUsingCaeApi.CAE;
 using System.Net.Http.Headers;
 using System.Text.Json;
 
-namespace RazorPageCae;
+namespace RazorPageUsingCaeApi.Services;
 
 public class AdminApiClientService
 {
