@@ -16,11 +16,11 @@ namespace CaeApi.CAE;
 /// Applications that use enhanced security features like Continuous Access Evaluation (CAE) 
 /// and Conditional Access authentication context must be prepared to handle claims challenges.
 /// </summary>
-public class CAECliamsChallengeService
+public class CaeCliamsChallengeService
 {
     private readonly IConfiguration _configuration;
 
-    public CAECliamsChallengeService(IConfiguration configuration)
+    public CaeCliamsChallengeService(IConfiguration configuration)
     {
         _configuration = configuration;
     }

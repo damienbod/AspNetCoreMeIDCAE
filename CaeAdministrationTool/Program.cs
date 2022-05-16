@@ -6,7 +6,7 @@ using Microsoft.Identity.Web.UI;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<GraphAuthContextAdmin>();
-builder.Services.AddScoped<CAEAdminServices>();
+builder.Services.AddScoped<CaeAdminServices>();
 
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddMicrosoftIdentityWebAppAuthentication(builder.Configuration, 
