@@ -24,6 +24,7 @@ public class CaeCliamsChallengeService
     {
         _configuration = configuration;
     }
+
     /// <summary>
     /// Retrieves the acrsValue from database for the request method.
     /// Checks if the access token has acrs claim with acrsValue.
@@ -62,6 +63,38 @@ public class CaeCliamsChallengeService
                 }
             }
         }
+    }
+
+    public string? CheckForRequiredAuthContextIdToken(string authContextId, HttpContext context)
+    {
+        if (!string.IsNullOrEmpty(authContextId))
+        {
+            string authenticationContextClassReferencesClaim = "acrs";
+
+            if (context == null || context.User == null || context.User.Claims == null || !context.User.Claims.Any())
+            {
+                throw new ArgumentNullException(nameof(context), "No Usercontext is available to pick claims from");
+            }
+
+            var acrsClaim = context.User.FindAll(authenticationContextClassReferencesClaim).FirstOrDefault(x => x.Value == authContextId);
+
+            if (acrsClaim?.Value != authContextId)
+            {
+                if (IsClientCapableofClaimsChallenge(context))
+                {
+                    string clientId = _configuration.GetSection("AzureAd").GetSection("ClientId").Value;
+                    var cae = "{\"id_token\":{\"acrs\":{\"essential\":true,\"value\":\"" + authContextId + "\"}}}";
+
+                    return cae;
+                }
+                else
+                {
+                    throw new UnauthorizedAccessException("The caller does not meet the authentication  bar to carry our this operation. The service cannot allow this operation");
+                }
+            }
+        }
+
+        return null;
     }
 
     /// <summary>

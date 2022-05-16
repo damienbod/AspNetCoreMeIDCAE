@@ -30,7 +30,12 @@ namespace RazorCaeStandalone.Pages
             {
                 // returns unauthorized exception with WWW-Authenticate header if CAE claim missing in access token
                 // handled in the caller client exception with challenge returned if not ok
-                _caeCliamsChallengeService.CheckForRequiredAuthContext(AuthContextId.C1, HttpContext);
+                var claimsChallenge = _caeCliamsChallengeService.CheckForRequiredAuthContextIdToken(AuthContextId.C1, HttpContext);
+
+                if (claimsChallenge != null)
+                {
+                    _consentHandler.ChallengeUser(new string[] { "user.read" }, claimsChallenge);
+                }
 
                 Data = new List<string>()
                 {
@@ -40,21 +45,9 @@ namespace RazorCaeStandalone.Pages
 
                 return Page();
             }
-            catch (WebApiMsalUiRequiredException hex)
+            catch (UnauthorizedAccessException ex)
             {
-                // Challenges the user if exception is thrown from Web API.
-                try
-                {
-                    var claimChallenge = WwwAuthenticateParameters.GetClaimChallengeFromResponseHeaders(hex.Headers);
-
-                    _consentHandler.ChallengeUser(new string[] { "user.read" }, claimChallenge);
-
-                    return Page();
-                }
-                catch (Exception ex)
-                {
-                    _consentHandler.HandleException(ex);
-                }            
+                _consentHandler.HandleException(ex);        
             }
 
             return Page();
