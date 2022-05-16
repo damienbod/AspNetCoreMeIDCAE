@@ -1,4 +1,4 @@
-﻿namespace CaeAdministrationTool;
+﻿namespace CaeAdministrationTool.CAE;
 
 public static class AuthContextId
 {

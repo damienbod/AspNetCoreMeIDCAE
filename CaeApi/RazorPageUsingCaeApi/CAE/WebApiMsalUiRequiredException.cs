@@ -1,7 +1,7 @@
 ﻿using System.Net.Http.Headers;
 using System.Net;
 
-namespace RazorPageCae;
+namespace RazorPageUsingCaeApi.CAE;
 
 public class WebApiMsalUiRequiredException : Exception
 {
