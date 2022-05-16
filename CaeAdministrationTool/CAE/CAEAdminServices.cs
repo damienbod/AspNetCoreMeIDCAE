@@ -4,11 +4,11 @@
 /// Applications that use enhanced security features like Continuous Access Evaluation (CAE) 
 /// and Conditional Access authentication context must be prepared to handle claims challenges.
 /// </summary>
-public class CAEAdminServices
+public class CaeAdminServices
 {
     private readonly GraphAuthContextAdmin _graphAuthContextAdmin;
 
-    public CAEAdminServices(GraphAuthContextAdmin graphAuthContextAdmin)
+    public CaeAdminServices(GraphAuthContextAdmin graphAuthContextAdmin)
     {
         _graphAuthContextAdmin = graphAuthContextAdmin;
     }

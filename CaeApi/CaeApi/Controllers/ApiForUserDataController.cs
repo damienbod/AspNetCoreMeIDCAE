@@ -11,9 +11,9 @@ namespace CaeApi.Controllers;
 [Route("[controller]")]
 public class ApiForUserDataController : ControllerBase
 {
-    private readonly CAECliamsChallengeService _caeCliamsChallengeService;
+    private readonly CaeCliamsChallengeService _caeCliamsChallengeService;
 
-    public ApiForUserDataController(CAECliamsChallengeService caeCliamsChallengeService)
+    public ApiForUserDataController(CaeCliamsChallengeService caeCliamsChallengeService)
     {
         _caeCliamsChallengeService = caeCliamsChallengeService;
     }
