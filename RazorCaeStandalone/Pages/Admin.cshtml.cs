@@ -22,9 +22,7 @@ namespace RazorCaeStandalone.Pages
 
         public IActionResult OnGet()
         {
-
-            // returns unauthorized exception with WWW-Authenticate header if CAE claim missing in access token
-            // handled in the caller client exception with challenge returned if not ok
+            // if CAE claim missing in id token, the required claims challenge is returned
             var claimsChallenge = _caeCliamsChallengeService.CheckForRequiredAuthContextIdToken(AuthContextId.C1, HttpContext);
 
             if (claimsChallenge != null)
