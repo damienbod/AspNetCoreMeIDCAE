@@ -54,9 +54,6 @@ public class Startup
             //    .Build();
             //options.Filters.Add(new AuthorizeFilter(policy));
         }).AddMicrosoftIdentityUI();
-
-        services.AddServerSideBlazor()
-          .AddMicrosoftIdentityConsentHandler();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
