@@ -23,7 +23,8 @@ namespace RazorCaeStandalone.Pages
         public IActionResult OnGet()
         {
             // if CAE claim missing in id token, the required claims challenge is returned
-            var claimsChallenge = _caeCliamsChallengeService.CheckForRequiredAuthContextIdToken(AuthContextId.C1, HttpContext);
+            var claimsChallenge = _caeCliamsChallengeService
+                .CheckForRequiredAuthContextIdToken(AuthContextId.C1, HttpContext);
 
             if (claimsChallenge != null)
             {
