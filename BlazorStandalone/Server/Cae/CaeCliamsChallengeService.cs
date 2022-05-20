@@ -12,6 +12,8 @@ namespace BlazorBffAzureAD.Server;
 /// 
 /// Applications that use enhanced security features like Continuous Access Evaluation (CAE) 
 /// and Conditional Access authentication context must be prepared to handle claims challenges.
+/// 
+/// This class is only required if using a standalone AuthContext check
 /// </summary>
 public class CaeCliamsChallengeService
 {
