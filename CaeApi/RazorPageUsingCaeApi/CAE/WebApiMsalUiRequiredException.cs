@@ -1,11 +1,8 @@
 ﻿using System.Net.Http.Headers;
 using System.Net;
 
-namespace CaeAdministrationTool.CAE;
+namespace RazorPageUsingCaeApi.CAE;
 
-/// <summary>
-/// Specialized excpetion handler for the TodoListService
-/// </summary>
 public class WebApiMsalUiRequiredException : Exception
 {
     private readonly HttpResponseMessage httpResponseMessage;

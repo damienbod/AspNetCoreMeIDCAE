@@ -1,25 +1,23 @@
-using CaeAdministrationTool.CAE;
-using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
+using RazorPageUsingCaeApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddScoped<GraphAuthContextAdmin>();
-builder.Services.AddScoped<CaeAdminServices>();
+builder.Services.AddScoped<MsGraphService>();
+builder.Services.AddScoped<AdminApiClientService>();
 
 builder.Services.AddDistributedMemoryCache();
-builder.Services.AddMicrosoftIdentityWebAppAuthentication(builder.Configuration, 
-        "AzureAd", subscribeToOpenIdConnectMiddlewareDiagnosticsEvents: true)
-    .EnableTokenAcquisitionToCallDownstreamApi()
+builder.Services.AddMicrosoftIdentityWebAppAuthentication(builder.Configuration, "AzureAd", subscribeToOpenIdConnectMiddlewareDiagnosticsEvents: true)
+    .EnableTokenAcquisitionToCallDownstreamApi(new[] { builder.Configuration.GetSection("AdminApi")["Scope"] })
     .AddMicrosoftGraph(builder.Configuration.GetSection("GraphBeta"))
     .AddDistributedTokenCaches();
 
 builder.Services.AddAuthorization(options =>
 {
-    // By default, all incoming requests will be authorized according to the default policy.
     options.FallbackPolicy = options.DefaultPolicy;
 });
+
 builder.Services.AddRazorPages()
     .AddMicrosoftIdentityUI();
 

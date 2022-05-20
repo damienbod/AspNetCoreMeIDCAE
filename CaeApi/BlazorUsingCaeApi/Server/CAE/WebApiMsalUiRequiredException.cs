@@ -1,7 +1,9 @@
-﻿using System.Net.Http.Headers;
+﻿using System;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Net;
 
-namespace CaeAdministrationTool.CAE;
+namespace Blazor.CAE.RequireMfa.Server.CAE;
 
 /// <summary>
 /// Specialized excpetion handler for the TodoListService

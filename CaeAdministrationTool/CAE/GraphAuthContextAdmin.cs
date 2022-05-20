@@ -3,7 +3,7 @@ using System.Text;
 using Microsoft.Graph;
 using Microsoft.Identity.Web;
 
-namespace CaeAdministrationTool;
+namespace CaeAdministrationTool.CAE;
 
 public class GraphAuthContextAdmin
 {
@@ -11,7 +11,7 @@ public class GraphAuthContextAdmin
     private readonly ILogger<GraphAuthContextAdmin> _logger;
 
     public GraphAuthContextAdmin(
-        ILogger<GraphAuthContextAdmin> logger, 
+        ILogger<GraphAuthContextAdmin> logger,
         GraphServiceClient graphServiceClient)
     {
         _graphServiceClient = graphServiceClient;
@@ -98,7 +98,7 @@ public class GraphAuthContextAdmin
         }
         catch (ServiceException e)
         {
-            _logger.LogWarning("We could not add a new ACR: {exception}",  e.Error.Message);
+            _logger.LogWarning("We could not add a new ACR: {exception}", e.Error.Message);
 
             return null;
         }
@@ -132,7 +132,7 @@ public class GraphAuthContextAdmin
         }
         catch (ServiceException e)
         {
-            _logger.LogWarning("We could not update the ACR: {exception}",  e.Error.Message);
+            _logger.LogWarning("We could not update the ACR: {exception}", e.Error.Message);
 
             return null;
         }

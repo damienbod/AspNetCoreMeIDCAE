@@ -1,4 +1,4 @@
-﻿namespace CaeAdministrationTool.CAE;
+﻿namespace RazorPageUsingCaeApi.CAE;
 
 public static class AuthContextId
 {

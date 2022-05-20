@@ -1,16 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CaeAdministrationTool.CAE;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CaeAdministrationTool.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly CAEAdminServices _caeAdminServices;
+        private readonly CaeAdminServices _caeAdminServices;
 
         [BindProperty]
         public bool? Created { get; set; } = false;
 
-        public IndexModel(CAEAdminServices caeAdminServices)
+        public IndexModel(CaeAdminServices caeAdminServices)
         {
             _caeAdminServices = caeAdminServices;
         }

@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>aspnet-CaeAdministrationTool-5923985F-7201-4DDE-A54A-9E56C6B8F542</UserSecretsId>
+    <UserSecretsId>aspnet-RazorPageCae-B438D4AF-FBBA-412C-BFFE-B7A740EA647E</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

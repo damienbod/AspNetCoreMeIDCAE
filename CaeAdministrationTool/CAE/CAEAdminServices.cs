@@ -1,14 +1,14 @@
-﻿namespace CaeAdministrationTool;
+﻿namespace CaeAdministrationTool.CAE;
 
 /// <summary>
 /// Applications that use enhanced security features like Continuous Access Evaluation (CAE) 
 /// and Conditional Access authentication context must be prepared to handle claims challenges.
 /// </summary>
-public class CAEAdminServices
+public class CaeAdminServices
 {
     private readonly GraphAuthContextAdmin _graphAuthContextAdmin;
 
-    public CAEAdminServices(GraphAuthContextAdmin graphAuthContextAdmin)
+    public CaeAdminServices(GraphAuthContextAdmin graphAuthContextAdmin)
     {
         _graphAuthContextAdmin = graphAuthContextAdmin;
     }
@@ -44,9 +44,9 @@ public class CAEAdminServices
     public async Task CreateAuthContextViaGraph(string acrKey, string acrValue)
     {
         await _graphAuthContextAdmin.CreateAuthContextClassReferenceAsync(
-            acrKey, 
-            acrValue, 
-            $"A new Authentication Context Class Reference created at {DateTime.UtcNow}", 
+            acrKey,
+            acrValue,
+            $"A new Authentication Context Class Reference created at {DateTime.UtcNow}",
             true);
     }
 }
