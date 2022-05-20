@@ -14,9 +14,9 @@ namespace BlazorBffAzureAD.Server.Controllers;
 [Route("api/[controller]")]
 public class AdminApiCallsController : ControllerBase
 {
-    private readonly CaeCliamsChallengeService _caeCliamsChallengeService;
+    private readonly CaeClaimsChallengeService _caeCliamsChallengeService;
 
-    public AdminApiCallsController(CaeCliamsChallengeService caeCliamsChallengeService)
+    public AdminApiCallsController(CaeClaimsChallengeService caeCliamsChallengeService)
     {
         _caeCliamsChallengeService = caeCliamsChallengeService;
     }

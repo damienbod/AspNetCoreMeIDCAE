@@ -12,7 +12,7 @@ using System.IdentityModel.Tokens.Jwt;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddScoped<CaeCliamsChallengeService>();
+builder.Services.AddScoped<CaeClaimsChallengeService>();
 
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddMicrosoftIdentityWebApiAuthentication(builder.Configuration)
