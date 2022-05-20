@@ -8,7 +8,7 @@ using RazorCaeStandalone;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddScoped<CaeCliamsChallengeService>();
+builder.Services.AddScoped<CaeClaimsChallengeService>();
 
 // Add services to the container.
 builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)

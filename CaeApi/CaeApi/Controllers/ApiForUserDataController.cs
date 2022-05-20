@@ -11,11 +11,11 @@ namespace CaeApi.Controllers;
 [Route("[controller]")]
 public class ApiForUserDataController : ControllerBase
 {
-    private readonly CaeClaimsChallengeService _caeCliamsChallengeService;
+    private readonly CaeClaimsChallengeService _caeClaimsChallengeService;
 
-    public ApiForUserDataController(CaeClaimsChallengeService caeCliamsChallengeService)
+    public ApiForUserDataController(CaeClaimsChallengeService caeClaimsChallengeService)
     {
-        _caeCliamsChallengeService = caeCliamsChallengeService;
+        _caeClaimsChallengeService = caeClaimsChallengeService;
     }
 
     [HttpGet]
@@ -23,7 +23,7 @@ public class ApiForUserDataController : ControllerBase
     {
         // returns unauthorized exception with WWW-Authenticate header if CAE claim missing in access token
         // handled in the caller client exception with challenge returned if not ok
-        _caeCliamsChallengeService.CheckForRequiredAuthContext(AuthContextId.C1, HttpContext);
+        _caeClaimsChallengeService.CheckForRequiredAuthContext(AuthContextId.C1, HttpContext);
         return new List<string> { "admin API CAE protected data 1", "admin API CAE protected  data 2" };
     }
 }

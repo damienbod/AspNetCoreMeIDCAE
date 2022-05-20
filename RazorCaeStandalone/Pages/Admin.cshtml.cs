@@ -7,11 +7,11 @@ namespace RazorCaeStandalone.Pages
 {
     public class AdminModel : PageModel
     {
-        private readonly CaeCliamsChallengeService _caeCliamsChallengeService;
+        private readonly CaeClaimsChallengeService _caeClaimsChallengeService;
 
-        public AdminModel( CaeCliamsChallengeService caeCliamsChallengeService)
+        public AdminModel( CaeClaimsChallengeService caeClaimsChallengeService)
         {
-            _caeCliamsChallengeService = caeCliamsChallengeService;
+            _caeClaimsChallengeService = caeClaimsChallengeService;
         }
 
         [BindProperty]
@@ -20,7 +20,7 @@ namespace RazorCaeStandalone.Pages
         public IActionResult OnGet()
         {
             // if CAE claim missing in id token, the required claims challenge is returned
-            var claimsChallenge = _caeCliamsChallengeService
+            var claimsChallenge = _caeClaimsChallengeService
                 .CheckForRequiredAuthContextIdToken(AuthContextId.C1, HttpContext);
 
             if (claimsChallenge != null)
