@@ -2,11 +2,12 @@
 
 # Razor Page Azure AD Continuous Access Evaluation
 
-Implement Azure AD Continuous Access Evaluation in an ASP.NET Core Razor Page app using a Web API
+[Implement Azure AD Continuous Access Evaluation in an ASP.NET Core Razor Page app using a Web API](https://damienbod.com/2022/04/20/implement-azure-ad-continuous-access-evaluation-in-an-asp-net-core-razor-page-app-using-a-web-api/)
 
-https://damienbod.com/2022/04/20/implement-azure-ad-continuous-access-evaluation-in-an-asp-net-core-razor-page-app-using-a-web-api/
 
 # History 
+
+2022-05-20 Add standalone samples
 
 2022-05-13 Add CAE Blazor example
 
@@ -18,7 +19,7 @@ https://damienbod.com/2022/04/20/implement-azure-ad-continuous-access-evaluation
 
 2022-04-03 initial version
 
-## Azure app registration manifest
+## Azure app registration manifest access token
 
 ```json
 "optionalClaims": {
@@ -31,6 +32,23 @@ https://damienbod.com/2022/04/20/implement-azure-ad-continuous-access-evaluation
 			"additionalProperties": []
 		}
 	],
+	"saml2Token": []
+},
+```
+
+## Azure app registration manifest id_token
+
+```json
+"optionalClaims": {
+	"idToken": [
+		{
+			"name": "xms_cc",
+			"source": null,
+			"essential": false,
+			"additionalProperties": []
+		}
+	],
+	"accessToken": [],
 	"saml2Token": []
 },
 ```
@@ -82,3 +100,5 @@ https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-conditional-a
 https://www.youtube.com/watch?v=_iO7CfoktTY
 
 https://openid.net/wg/sse/
+
+https://github.com/damienbod/Blazor.BFF.AzureAD.Template

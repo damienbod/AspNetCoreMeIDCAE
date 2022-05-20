@@ -6,7 +6,9 @@ using System.Net;
 namespace Blazor.CAE.RequireMfa.Server.CAE;
 
 /// <summary>
-/// Specialized excpetion handler for the TodoListService
+/// This exception class is used to pass HTTP CAE unauthorized responses from a Httpclient and 
+/// return the WWW-Authenticate header with the required claims challenge. 
+/// This is only required if using a downstream API
 /// </summary>
 public class WebApiMsalUiRequiredException : Exception
 {
