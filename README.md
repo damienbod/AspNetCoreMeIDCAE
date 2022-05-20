@@ -101,3 +101,5 @@ https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-conditional-a
 https://www.youtube.com/watch?v=_iO7CfoktTY
 
 https://openid.net/wg/sse/
+
+https://github.com/damienbod/Blazor.BFF.AzureAD.Template
