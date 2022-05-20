@@ -14,18 +14,18 @@ namespace BlazorBffAzureAD.Server.Controllers;
 [Route("api/[controller]")]
 public class AdminApiCallsController : ControllerBase
 {
-    private readonly CaeClaimsChallengeService _caeCliamsChallengeService;
+    private readonly CaeClaimsChallengeService _caeClaimsChallengeService;
 
-    public AdminApiCallsController(CaeClaimsChallengeService caeCliamsChallengeService)
+    public AdminApiCallsController(CaeClaimsChallengeService caeClaimsChallengeService)
     {
-        _caeCliamsChallengeService = caeCliamsChallengeService;
+        _caeClaimsChallengeService = caeClaimsChallengeService;
     }
 
     [HttpGet]
-    public async Task<IActionResult> Get()
+    public IActionResult Get()
     {
         // if CAE claim missing in id token, the required claims challenge is returned
-        var claimsChallenge = _caeCliamsChallengeService
+        var claimsChallenge = _caeClaimsChallengeService
             .CheckForRequiredAuthContextIdToken(AuthContextId.C1, HttpContext);
 
         if (claimsChallenge != null)
