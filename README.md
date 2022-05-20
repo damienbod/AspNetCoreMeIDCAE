@@ -8,6 +8,8 @@ https://damienbod.com/2022/04/20/implement-azure-ad-continuous-access-evaluation
 
 # History 
 
+2022-05-20 Add standalone samples
+
 2022-05-13 Add CAE Blazor example
 
 2022-05-08 Update packages

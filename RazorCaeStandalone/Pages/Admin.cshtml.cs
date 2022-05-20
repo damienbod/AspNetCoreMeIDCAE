@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Identity.Client;
-using Microsoft.Identity.Web;
-using System;
 using System.Collections.Generic;
 
 namespace RazorCaeStandalone.Pages

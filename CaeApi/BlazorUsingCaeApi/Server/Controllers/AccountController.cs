@@ -13,7 +13,7 @@ public class AccountController : ControllerBase
     [HttpGet("Login")]
     public ActionResult Login(string? returnUrl, string? claimsChallenge)
     {
-        //var claims = "{\"access_token\":{\"acrs\":{\"essential\":true,\"value\":\"c1\"}}}";
+        //var claims = "{\"id_token\":{\"acrs\":{\"essential\":true,\"value\":\"c1\"}}}";
         var redirectUri = !string.IsNullOrEmpty(returnUrl) ? returnUrl : "/";
 
         var properties = new AuthenticationProperties { RedirectUri = redirectUri };
