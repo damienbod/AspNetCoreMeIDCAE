@@ -20,7 +20,7 @@ https://damienbod.com/2022/04/20/implement-azure-ad-continuous-access-evaluation
 
 2022-04-03 initial version
 
-## Azure app registration manifest
+## Azure app registration manifest access token
 
 ```json
 "optionalClaims": {
@@ -33,6 +33,23 @@ https://damienbod.com/2022/04/20/implement-azure-ad-continuous-access-evaluation
 			"additionalProperties": []
 		}
 	],
+	"saml2Token": []
+},
+```
+
+## Azure app registration manifest id_token
+
+```json
+"optionalClaims": {
+	"idToken": [
+		{
+			"name": "xms_cc",
+			"source": null,
+			"essential": false,
+			"additionalProperties": []
+		}
+	],
+	"accessToken": [],
 	"saml2Token": []
 },
 ```
