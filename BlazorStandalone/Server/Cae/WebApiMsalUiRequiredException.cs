@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net;
 
-namespace Blazor.CAE.RequireMfa.Server.CAE;
+namespace BlazorBffAzureAD.Server;
 
 /// <summary>
 /// This exception class is used to pass HTTP CAE unauthorized responses from a Httpclient and 
