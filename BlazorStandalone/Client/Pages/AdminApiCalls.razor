@@ -1,5 +1,5 @@
 ﻿@page "/adminapicall"
-@inject IHttpClientFactory httpClientFactory
+@inject IAntiforgeryHttpClientFactory httpClientFactory
 @inject IJSRuntime JSRuntime
 
 <h1>Admin API CAE protected MFA required</h1>
@@ -32,10 +32,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        var token = await JSRuntime.InvokeAsync<string>("getAntiForgeryToken");
-
-        var client = httpClientFactory.CreateClient("authorizedClient");
-        client.DefaultRequestHeaders.Add("X-XSRF-TOKEN", token);
+        var client = await httpClientFactory.CreateClientAsync();
 
         apiData = await client.GetFromJsonAsync<string[]>("api/AdminApiCalls");
     }
