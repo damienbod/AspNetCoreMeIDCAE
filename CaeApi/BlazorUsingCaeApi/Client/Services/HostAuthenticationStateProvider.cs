@@ -1,12 +1,8 @@
 ﻿using Blazor.CAE.RequireMfa.Shared.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Net.Http;
 using System.Net.Http.Json;
 using System.Security.Claims;
-using System.Threading.Tasks;
 
 namespace Blazor.CAE.RequireMfa.Client.Services;
 
