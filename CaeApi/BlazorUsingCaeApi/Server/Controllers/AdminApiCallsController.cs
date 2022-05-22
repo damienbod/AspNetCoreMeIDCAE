@@ -1,7 +1,4 @@
-﻿using System;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Blazor.CAE.RequireMfa.Server.CAE;
+﻿using Blazor.CAE.RequireMfa.Server.CAE;
 using Blazor.CAE.RequireMfa.Server.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
