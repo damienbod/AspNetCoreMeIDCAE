@@ -7,6 +7,8 @@
 
 # History 
 
+2022-05-22 Improve code in Blazor applications
+
 2022-05-20 Add standalone samples
 
 2022-05-13 Add CAE Blazor example
