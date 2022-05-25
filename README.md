@@ -4,7 +4,7 @@
 
 [Implement Azure AD Continuous Access Evaluation in an ASP.NET Core Razor Page app using a Web API](https://damienbod.com/2022/04/20/implement-azure-ad-continuous-access-evaluation-in-an-asp-net-core-razor-page-app-using-a-web-api/)
 
-[Implement Azure AD Continuous Access Evaluation (CAE) step up with #aspnetcore Blazor using a Web API](https://damienbod.com/2022/05/23/implement-azure-ad-continuous-access-evaluation-cae-step-up-with-asp-net-core-blazor-using-a-web-api/)
+[Implement Azure AD Continuous Access Evaluation (CAE) step up with ASP.NET Core Blazor using a Web API](https://damienbod.com/2022/05/23/implement-azure-ad-continuous-access-evaluation-cae-step-up-with-asp-net-core-blazor-using-a-web-api/)
 
 # History 
 
