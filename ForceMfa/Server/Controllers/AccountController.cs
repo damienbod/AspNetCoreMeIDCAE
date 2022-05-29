@@ -26,6 +26,11 @@ public class AccountController : ControllerBase
 
             properties.Items["claims"] = jsonString;
         }
+        else
+        {
+            // lets force MFA using CAE for all sign in requests.
+            properties.Items["claims"] = "{\"id_token\":{\"acrs\":{\"essential\":true,\"value\":\"c1\"}}}";
+        }
 
         return Challenge(properties);
     }
