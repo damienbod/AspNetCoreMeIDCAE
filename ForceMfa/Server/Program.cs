@@ -1,6 +1,8 @@
 ﻿using ForceMfa.Server;
 using ForceMfa.Server.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
 
@@ -37,6 +39,14 @@ services.AddMicrosoftIdentityWebAppAuthentication(configuration)
     .AddMicrosoftGraph("https://graph.microsoft.com/v1.0", scopes)
     .AddInMemoryTokenCaches();
 
+services.AddAuthorization(options =>
+{
+    options.AddPolicy("ca-mfa", policy =>
+    {
+        policy.RequireClaim("acrs", AuthContextId.C1);
+    });
+});
+
 services.AddControllersWithViews(options =>
     options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()));
 
@@ -44,6 +54,7 @@ services.AddRazorPages().AddMvcOptions(options =>
 {
     //var policy = new AuthorizationPolicyBuilder()
     //    .RequireAuthenticatedUser()
+    //    .RequireClaim("acrs", AuthContextId.C1)
     //    .Build();
     //options.Filters.Add(new AuthorizeFilter(policy));
 }).AddMicrosoftIdentityUI();

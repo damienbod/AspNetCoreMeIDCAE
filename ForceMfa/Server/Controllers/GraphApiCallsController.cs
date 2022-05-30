@@ -7,7 +7,7 @@ using Microsoft.Identity.Web;
 namespace ForceMfa.Server.Controllers;
 
 [ValidateAntiForgeryToken]
-[Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
+[Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme, Policy = "ca-mfa")]
 [AuthorizeForScopes(Scopes = new string[] { "User.ReadBasic.All user.read" })]
 [ApiController]
 [Route("api/[controller]")]

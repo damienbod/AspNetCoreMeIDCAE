@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ForceMfa.Server.Controllers;
 
 [ValidateAntiForgeryToken]
-[Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
+[Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme, Policy = "ca-mfa")]
 [ApiController]
 [Route("api/[controller]")]
 public class DirectApiController : ControllerBase
