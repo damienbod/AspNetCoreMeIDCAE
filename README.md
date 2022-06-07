@@ -10,6 +10,8 @@
 
 # History 
 
+2022-06-07 Force MFA authn from an APP
+
 2022-05-23 Improve code in Blazor applications
 
 2022-05-20 Add standalone samples
