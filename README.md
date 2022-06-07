@@ -1,6 +1,6 @@
 [![.NET](https://github.com/damienbod/AspNetCoreAzureADCAE/actions/workflows/dotnet.yml/badge.svg)](https://github.com/damienbod/AspNetCoreAzureADCAE/actions/workflows/dotnet.yml)
 
-# Razor Page Azure AD Continuous Access
+# Razor, Blazor Page Azure AD Continuous Access
 
 [Implement Azure AD Continuous Access in an ASP.NET Core Razor Page app using a Web API](https://damienbod.com/2022/04/20/implement-azure-ad-continuous-access-evaluation-in-an-asp-net-core-razor-page-app-using-a-web-api/)
 
