@@ -1,5 +1,6 @@
 ﻿using ForceMfa.Server;
 using ForceMfa.Server.Services;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
@@ -52,12 +53,28 @@ services.AddControllersWithViews(options =>
 
 services.AddRazorPages().AddMvcOptions(options =>
 {
-    //var policy = new AuthorizationPolicyBuilder()
-    //    .RequireAuthenticatedUser()
-    //    .RequireClaim("acrs", AuthContextId.C1)
-    //    .Build();
-    //options.Filters.Add(new AuthorizeFilter(policy));
+    var policy = new AuthorizationPolicyBuilder()
+        .RequireAuthenticatedUser()
+        .RequireClaim("acrs", AuthContextId.C1)
+        .Build();
+    options.Filters.Add(new AuthorizeFilter(policy));
 }).AddMicrosoftIdentityUI();
+
+
+services.Configure<MicrosoftIdentityOptions>(OpenIdConnectDefaults.AuthenticationScheme, options =>
+{
+    options.Events.OnRedirectToIdentityProvider = context =>
+    {
+        if(!context.ProtocolMessage.Parameters.ContainsKey("claims"))
+        {
+            context.ProtocolMessage.SetParameter(
+            "claims",
+            "{\"id_token\":{\"acrs\":{\"essential\":true,\"value\":\"c1\"}}}");
+        }
+
+        return Task.FromResult(0);
+    };
+});
 
 var app = builder.Build();
 
