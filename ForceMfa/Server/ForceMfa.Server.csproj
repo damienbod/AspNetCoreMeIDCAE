@@ -12,8 +12,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Client\BlazorBffAzureAD.Client.csproj" />
-		<ProjectReference Include="..\Shared\BlazorBffAzureAD.Shared.csproj" />
+		<ProjectReference Include="..\Client\ForceMfa.Client.csproj" />
+		<ProjectReference Include="..\Shared\ForceMfa.Shared.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
