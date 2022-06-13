@@ -8,9 +8,11 @@
 
 [Implement Azure AD Continuous Access (CA) standalone with Blazor ASP.NET Core](https://damienbod.com/2022/05/30/implement-azure-ad-continuous-access-evaluation-cae-standalone-with-blazor-asp-net-core/)
 
+[Force MFA in Blazor using Azure AD and Continuous Access](https://damienbod.com/2022/06/13/force-mfa-in-blazor-using-azure-ad-and-continuous-access/)
+
 # History 
 
-2022-06-07 Force MFA authn from an APP
+2022-06-13 Force MFA authn from an APP
 
 2022-05-23 Improve code in Blazor applications
 
