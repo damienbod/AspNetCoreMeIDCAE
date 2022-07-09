@@ -78,6 +78,8 @@ services.Configure<MicrosoftIdentityOptions>(OpenIdConnectDefaults.Authenticatio
 
 var app = builder.Build();
 
+// IdentityModelEventSource.ShowPII = true;
+
 if (env.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
