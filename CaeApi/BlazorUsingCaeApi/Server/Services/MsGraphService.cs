@@ -21,6 +21,10 @@ public class MsGraphService
             .GetAsync();
     }
 
+    /// <summary>
+    /// only AAD accounts, mutliple tenant users don't pass this without mapping
+    /// </summary>
+    /// <returns></returns>
     public async Task<string> GetGraphApiProfilePhoto()
     {
         try
