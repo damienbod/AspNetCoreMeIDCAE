@@ -20,8 +20,9 @@ namespace RazorCaePhishingResistant.Pages
         public IActionResult OnGet()
         {
             // if CAE claim missing in id token, the required claims challenge is returned
+            // C4 is used in the phishing resistant policy
             var claimsChallenge = _caeClaimsChallengeService
-                .CheckForRequiredAuthContextIdToken(AuthContextId.C1, HttpContext);
+                .CheckForRequiredAuthContextIdToken(AuthContextId.C4, HttpContext);
 
             if (claimsChallenge != null)
             {
