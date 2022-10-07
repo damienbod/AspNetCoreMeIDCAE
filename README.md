@@ -12,6 +12,8 @@
 
 # History 
 
+2022-10-07 Updated packages
+
 2022-09-11 Updated packages
 
 2022-06-13 Force MFA authn from an APP
