@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace RazorCaeStandalone.Pages
+namespace RazorCaePhishingResistant.Pages
 {
     public class IndexModel : PageModel
     {

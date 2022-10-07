@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
 
-namespace RazorCaeStandalone.Pages
+namespace RazorCaePhishingResistant.Pages
 {
     public class AdminModel : PageModel
     {

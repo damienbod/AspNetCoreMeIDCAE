@@ -3,12 +3,12 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "https://localhost:44329",
-      "sslPort": 44329
+      "applicationUrl": "https://localhost:44414",
+      "sslPort": 44414
     }
   },
   "profiles": {
-    "RazorCaeStandalone": {
+    "RazorCaePhishingResistant": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

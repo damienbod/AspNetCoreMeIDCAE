@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.Linq;
 
-namespace RazorCaeStandalone;
+namespace RazorCaePhishingResistant;
 
 /// <summary>
 /// Claims challenges, claims requests, and client capabilities

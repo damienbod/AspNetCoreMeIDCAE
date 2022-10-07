@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
-using RazorCaeStandalone;
+using RazorCaePhishingResistant;
 
 var builder = WebApplication.CreateBuilder(args);
 

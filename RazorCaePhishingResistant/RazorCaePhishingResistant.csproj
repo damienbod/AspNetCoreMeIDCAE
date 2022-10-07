@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
-    <UserSecretsId>aspnet-RazorCaeStandalone-D1D69207-3D8C-491B-8140-6D20B5EA67AE</UserSecretsId>
+    <UserSecretsId>f8412216-8cc0-4778-9cd5-b6421e98fcca</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
