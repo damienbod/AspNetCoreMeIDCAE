@@ -10,4 +10,5 @@ public static class AuthContextId
     /// Phishing resistant
     /// </summary>
     public const string C4 = "c4";
+    public const string C5 = "c5";
 }
