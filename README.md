@@ -12,7 +12,7 @@
 
 # History 
 
-2022-10-08 Updated packages
+2022-10-09 Updated packages
 
 2022-09-11 Updated packages
 
@@ -117,3 +117,5 @@ https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/conce
 https://openid.net/wg/sse/
 
 https://github.com/damienbod/Blazor.BFF.AzureAD.Template
+
+https://github.com/AzureAD/microsoft-identity-web
