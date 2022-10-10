@@ -10,7 +10,7 @@
 
 [Force MFA in Blazor using Azure AD and Continuous Access](https://damienbod.com/2022/06/13/force-mfa-in-blazor-using-azure-ad-and-continuous-access/)
 
-[Force phishing resistant authentication in an ASP.NET Core application using Azure AD](https://damienbod.com)
+[Force phishing resistant authentication in an ASP.NET Core application using Azure AD](https://damienbod.com/2022/10/10/force-phishing-resistant-authentication-in-an-asp-net-core-application-using-azure-ad/)
 
 # History 
 
