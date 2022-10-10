@@ -10,7 +10,11 @@
 
 [Force MFA in Blazor using Azure AD and Continuous Access](https://damienbod.com/2022/06/13/force-mfa-in-blazor-using-azure-ad-and-continuous-access/)
 
+[Force phishing resistant authentication in an ASP.NET Core application using Azure AD](https://damienbod.com)
+
 # History 
+
+2022-10-09 Updated packages
 
 2022-09-11 Updated packages
 
@@ -115,3 +119,5 @@ https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/conce
 https://openid.net/wg/sse/
 
 https://github.com/damienbod/Blazor.BFF.AzureAD.Template
+
+https://github.com/AzureAD/microsoft-identity-web
