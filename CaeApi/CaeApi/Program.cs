@@ -32,13 +32,16 @@ builder.Services.AddControllers(options =>
     options.Filters.Add(new AuthorizeFilter(policy));
 });
 
+var azpValidClientId = builder.Configuration["AzpValidClientId"];
+if (azpValidClientId == null) throw new ArgumentNullException(azpValidClientId);
+
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("ValidateAccessTokenPolicy", validateAccessTokenPolicy =>
     {
         // Validate id of application for which the token was created
         // In this case the UI application 
-        validateAccessTokenPolicy.RequireClaim("azp", builder.Configuration["AzpValidClientId"]);
+        validateAccessTokenPolicy.RequireClaim("azp", azpValidClientId);
 
         // only allow tokens which used "Private key JWT Client authentication"
         // // https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens

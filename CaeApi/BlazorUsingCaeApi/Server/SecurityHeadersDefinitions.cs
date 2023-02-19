@@ -4,8 +4,10 @@ namespace Blazor.CAE.RequireMfa.Server;
 
 public static class SecurityHeadersDefinitions
 {
-    public static HeaderPolicyCollection GetHeaderPolicyCollection(bool isDev, string idpHost)
+    public static HeaderPolicyCollection GetHeaderPolicyCollection(bool isDev, string? idpHost)
     {
+        if (idpHost == null) throw new ArgumentNullException(idpHost);
+
         var policy = new HeaderPolicyCollection()
             .AddFrameOptionsDeny()
             .AddXssProtectionBlock()
