@@ -7,9 +7,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<MsGraphService>();
 builder.Services.AddScoped<AdminApiClientService>();
 
+var downstreamScopes = new List<string>();
+var scope = builder.Configuration.GetSection("AdminApi")["Scope"];
+if (scope != null) downstreamScopes.Add(scope);
+
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddMicrosoftIdentityWebAppAuthentication(builder.Configuration, "AzureAd", subscribeToOpenIdConnectMiddlewareDiagnosticsEvents: true)
-    .EnableTokenAcquisitionToCallDownstreamApi(new[] { builder.Configuration.GetSection("AdminApi")["Scope"] })
+    .EnableTokenAcquisitionToCallDownstreamApi(downstreamScopes)
     .AddMicrosoftGraph(builder.Configuration.GetSection("GraphBeta"))
     .AddDistributedTokenCaches();
 
