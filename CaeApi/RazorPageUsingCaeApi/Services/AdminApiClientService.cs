@@ -9,8 +9,8 @@ public class AdminApiClientService
 {
     private readonly IHttpClientFactory _clientFactory;
     private readonly ITokenAcquisition _tokenAcquisition;
-    private readonly string _adminApiBaseUrl;
-    private readonly string _adminApiScope;
+    private readonly string? _adminApiBaseUrl;
+    private readonly string? _adminApiScope;
 
     public AdminApiClientService(
         ITokenAcquisition tokenAcquisition,
@@ -27,8 +27,12 @@ public class AdminApiClientService
     {
         var client = _clientFactory.CreateClient();
 
+        if (_adminApiScope == null) throw new ArgumentNullException(nameof(_adminApiScope));
+        if (_adminApiBaseUrl == null) throw new ArgumentNullException(nameof(_adminApiBaseUrl));
+
         var scopes = new List<string> { _adminApiScope };
         var accessToken = await _tokenAcquisition.GetAccessTokenForUserAsync(scopes);
+
 
         client.BaseAddress = new Uri(_adminApiBaseUrl);
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
