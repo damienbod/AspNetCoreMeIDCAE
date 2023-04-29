@@ -1,9 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.Linq;
-
-namespace RazorCaePhishingResistant;
+﻿namespace RazorCaePhishingResistant;
 
 /// <summary>
 /// Claims challenges, claims requests, and client capabilities
