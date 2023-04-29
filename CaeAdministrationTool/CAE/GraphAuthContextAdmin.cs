@@ -46,7 +46,7 @@ public class GraphAuthContextAdmin
                 throw exp;
             }
 
-            throw e;
+            throw;
         }
 
         return allAuthenticationContextClassReferences;
