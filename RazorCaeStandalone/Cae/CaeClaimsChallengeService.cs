@@ -1,9 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.Linq;
-
-namespace RazorCaeStandalone;
+﻿namespace RazorCaeStandalone;
 
 /// <summary>
 /// Claims challenges, claims requests, and client capabilities
@@ -37,7 +32,8 @@ public class CaeClaimsChallengeService
 
             if (acrsClaim?.Value != authContextId)
             {
-                string clientId = _configuration.GetSection("AzureAd").GetSection("ClientId").Value;
+                var clientId = _configuration.GetSection("AzureAd").GetSection("ClientId").Value;
+                if (clientId == null) throw new ArgumentNullException(nameof(clientId));
                 var cae = "{\"id_token\":{\"acrs\":{\"essential\":true,\"value\":\"" + authContextId + "\"}}}";
 
                 return cae;
