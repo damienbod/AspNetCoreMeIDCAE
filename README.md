@@ -14,31 +14,20 @@
 
 # History 
 
-2023-08-06 Updated packages
-
-2023-04-29 Updated packages, some style fixes
-
-2023-02-19 Updated to .NET 7
-
-2022-10-09 Updated packages
-
-2022-09-11 Updated packages
-
-2022-06-13 Force MFA authn from an APP
-
-2022-05-23 Improve code in Blazor applications
-
-2022-05-20 Add standalone samples
-
-2022-05-13 Add CAE Blazor example
-
-2022-05-08 Update packages
-
-2022-04-16 Update packages
-
-2022-04-05 Added CAE admin tool using Microsoft Graph
-
-2022-04-03 initial version
+- 2023-11-04 Updated packages
+- 2023-08-06 Updated packages
+- 2023-04-29 Updated packages, some style fixes
+- 2023-02-19 Updated to .NET 7
+- 2022-10-09 Updated packages
+- 2022-09-11 Updated packages
+- 2022-06-13 Force MFA authn from an APP
+- 2022-05-23 Improve code in Blazor applications
+- 2022-05-20 Add standalone samples
+- 2022-05-13 Add CAE Blazor example
+- 2022-05-08 Update packages
+- 2022-04-16 Update packages
+- 2022-04-05 Added CAE admin tool using Microsoft Graph
+- 2022-04-03 initial version
 
 ## Azure app registration manifest access token
 
