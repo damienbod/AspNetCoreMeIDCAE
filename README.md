@@ -14,6 +14,7 @@
 
 # History 
 
+- 2024-01-14 Updated packages, improved security headers
 - 2023-11-04 Updated packages, fixed security headers
 - 2023-08-06 Updated packages
 - 2023-04-29 Updated packages, some style fixes
