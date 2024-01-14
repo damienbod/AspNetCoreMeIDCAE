@@ -77,7 +77,7 @@ builder.Services.AddSwaggerGen(c =>
 
     c.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "Admin AAD CAE protected API",
+        Title = "Admin ME ID CAE protected API",
         Version = "v1",
         Description = "User API One",
         Contact = new OpenApiContact

@@ -1,16 +1,16 @@
 [![.NET](https://github.com/damienbod/AspNetCoreAzureADCAE/actions/workflows/dotnet.yml/badge.svg)](https://github.com/damienbod/AspNetCoreAzureADCAE/actions/workflows/dotnet.yml)
 
-# Razor, Blazor Page Azure AD Continuous Access
+# Razor, Blazor Page Microsoft Entra ID  Continuous Access
 
-[Implement Azure AD Continuous Access in an ASP.NET Core Razor Page app using a Web API](https://damienbod.com/2022/04/20/implement-azure-ad-continuous-access-evaluation-in-an-asp-net-core-razor-page-app-using-a-web-api/)
+[Implement Microsoft Entra ID  Continuous Access in an ASP.NET Core Razor Page app using a Web API](https://damienbod.com/2022/04/20/implement-azure-ad-continuous-access-evaluation-in-an-asp-net-core-razor-page-app-using-a-web-api/)
 
-[Implement Azure AD Continuous Access (CA) step up with ASP.NET Core Blazor using a Web API](https://damienbod.com/2022/05/23/implement-azure-ad-continuous-access-evaluation-cae-step-up-with-asp-net-core-blazor-using-a-web-api/)
+[Implement Microsoft Entra ID  Continuous Access (CA) step up with ASP.NET Core Blazor using a Web API](https://damienbod.com/2022/05/23/implement-azure-ad-continuous-access-evaluation-cae-step-up-with-asp-net-core-blazor-using-a-web-api/)
 
-[Implement Azure AD Continuous Access (CA) standalone with Blazor ASP.NET Core](https://damienbod.com/2022/05/30/implement-azure-ad-continuous-access-evaluation-cae-standalone-with-blazor-asp-net-core/)
+[Implement Microsoft Entra ID  Continuous Access (CA) standalone with Blazor ASP.NET Core](https://damienbod.com/2022/05/30/implement-azure-ad-continuous-access-evaluation-cae-standalone-with-blazor-asp-net-core/)
 
-[Force MFA in Blazor using Azure AD and Continuous Access](https://damienbod.com/2022/06/13/force-mfa-in-blazor-using-azure-ad-and-continuous-access/)
+[Force MFA in Blazor using Microsoft Entra ID and Continuous Access](https://damienbod.com/2022/06/13/force-mfa-in-blazor-using-azure-ad-and-continuous-access/)
 
-[Force phishing resistant authentication in an ASP.NET Core application using Azure AD](https://damienbod.com/2022/10/10/force-phishing-resistant-authentication-in-an-asp-net-core-application-using-azure-ad/)
+[Force phishing resistant authentication in an ASP.NET Core application using Microsoft Entra ID ](https://damienbod.com/2022/10/10/force-phishing-resistant-authentication-in-an-asp-net-core-application-using-azure-ad/)
 
 # History 
 
