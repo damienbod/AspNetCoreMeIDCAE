@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using CaeApi.CAE;
+﻿using CaeApi.CAE;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace CaeApi.Controllers;
 

@@ -1,15 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFramework>net9.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<UserSecretsId>8e21c463-4afb-4fc4-b018-1919ab2ff9e5</UserSecretsId>
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.1" />
-		<PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders.TagHelpers" Version="0.21.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="9.0.5" />
+		<PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders.TagHelpers" Version="1.1.0" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -18,11 +18,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="8.0.1" NoWarn="NU1605" />
-		<PackageReference Include="Microsoft.Identity.Web.MicrosoftGraph" Version="2.16.1" />
-		<PackageReference Include="Microsoft.Identity.Web" Version="2.16.1" />
-		<PackageReference Include="Microsoft.Identity.Web.UI" Version="2.16.1" />
-		<PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" Version="0.21.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="9.0.5" NoWarn="NU1605" />
+		<PackageReference Include="Microsoft.Identity.Web.MicrosoftGraph" Version="3.9.0" />
+		<PackageReference Include="Microsoft.Identity.Web" Version="3.9.0" />
+		<PackageReference Include="Microsoft.Identity.Web.UI" Version="3.9.0" />
+		<PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" Version="1.1.0" />
 	</ItemGroup>
 
 </Project>

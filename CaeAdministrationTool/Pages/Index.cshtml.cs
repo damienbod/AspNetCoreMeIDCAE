@@ -26,7 +26,7 @@ namespace CaeAdministrationTool.Pages
         public async Task OnPostAsync()
         {
             var contextsToCreate = _caeAdminServices.GetSupportedAuthContextValues();
-            foreach(var context in contextsToCreate)
+            foreach (var context in contextsToCreate)
             {
                 await _caeAdminServices.CreateAuthContextViaGraph(context.Key, context.Value);
             }

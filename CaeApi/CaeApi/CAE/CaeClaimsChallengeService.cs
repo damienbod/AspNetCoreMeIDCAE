@@ -47,7 +47,7 @@ public class CaeClaimsChallengeService
                 if (IsClientCapableofClaimsChallenge(context))
                 {
                     var clientId = _configuration.GetSection("AzureAd").GetSection("ClientId").Value;
-                    if(clientId == null) throw new ArgumentNullException(nameof(clientId));
+                    if (clientId == null) throw new ArgumentNullException(nameof(clientId));
                     var base64str = Convert.ToBase64String(Encoding.UTF8.GetBytes("{\"access_token\":{\"acrs\":{\"essential\":true,\"value\":\"" + authContextId + "\"}}}"));
 
                     context.Response.Headers.Append("WWW-Authenticate", $"Bearer realm=\"\", authorization_uri=\"https://login.microsoftonline.com/common/oauth2/authorize\", client_id=\"" + clientId + "\", error=\"insufficient_claims\", claims=\"" + base64str + "\", cc_type=\"authcontext\"");

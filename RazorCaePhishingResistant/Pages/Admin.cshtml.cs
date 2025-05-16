@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Collections.Generic;
 
 namespace RazorCaePhishingResistant.Pages;
 
@@ -9,7 +8,7 @@ public class AdminModel : PageModel
 {
     private readonly CaeClaimsChallengeService _caeClaimsChallengeService;
 
-    public AdminModel( CaeClaimsChallengeService caeClaimsChallengeService)
+    public AdminModel(CaeClaimsChallengeService caeClaimsChallengeService)
     {
         _caeClaimsChallengeService = caeClaimsChallengeService;
     }

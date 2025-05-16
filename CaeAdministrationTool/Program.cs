@@ -1,5 +1,4 @@
 using CaeAdministrationTool.CAE;
-using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
 
@@ -9,7 +8,7 @@ builder.Services.AddScoped<GraphAuthContextAdmin>();
 builder.Services.AddScoped<CaeAdminServices>();
 
 builder.Services.AddDistributedMemoryCache();
-builder.Services.AddMicrosoftIdentityWebAppAuthentication(builder.Configuration, 
+builder.Services.AddMicrosoftIdentityWebAppAuthentication(builder.Configuration,
         "AzureAd", subscribeToOpenIdConnectMiddlewareDiagnosticsEvents: true)
     .EnableTokenAcquisitionToCallDownstreamApi()
     .AddMicrosoftGraph(builder.Configuration.GetSection("GraphBeta"))

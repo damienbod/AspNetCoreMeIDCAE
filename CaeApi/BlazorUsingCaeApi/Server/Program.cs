@@ -34,9 +34,14 @@ services.AddHttpClient();
 services.AddOptions();
 
 services.AddMicrosoftIdentityWebAppAuthentication(configuration, "AzureAd", subscribeToOpenIdConnectMiddlewareDiagnosticsEvents: true)
-    .EnableTokenAcquisitionToCallDownstreamApi(new[] { "api://7c839e15-096b-4abb-a869-df9e6b34027c/access_as_user" })
+    .EnableTokenAcquisitionToCallDownstreamApi(["api://7c839e15-096b-4abb-a869-df9e6b34027c/access_as_user"])
     .AddMicrosoftGraph(configuration.GetSection("GraphBeta"))
     .AddDistributedTokenCaches();
+
+builder.Services.AddSecurityHeaderPolicies()
+    .SetDefaultPolicy(SecurityHeadersDefinitions.GetHeaderPolicyCollection(
+        env.IsDevelopment(),
+        configuration["AzureAd:Instance"]));
 
 services.AddControllersWithViews(options =>
     options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()));
@@ -61,9 +66,7 @@ else
     app.UseExceptionHandler("/Error");
 }
 
-app.UseSecurityHeaders(
-    SecurityHeadersDefinitions.GetHeaderPolicyCollection(env.IsDevelopment(),
-        configuration["AzureAd:Instance"]));
+app.UseSecurityHeaders();
 
 app.UseHttpsRedirection();
 app.UseBlazorFrameworkFiles();

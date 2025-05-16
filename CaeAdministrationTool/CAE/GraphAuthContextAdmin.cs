@@ -1,7 +1,7 @@
-﻿using System.Net;
-using System.Text;
-using Microsoft.Graph;
+﻿using Microsoft.Graph;
 using Microsoft.Identity.Web;
+using System.Net;
+using System.Text;
 
 namespace CaeAdministrationTool.CAE;
 
