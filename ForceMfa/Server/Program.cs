@@ -68,7 +68,7 @@ services.Configure<MicrosoftIdentityOptions>(OpenIdConnectDefaults.Authenticatio
 {
     options.Events.OnRedirectToIdentityProvider = context =>
     {
-        if(!context.ProtocolMessage.Parameters.ContainsKey("claims"))
+        if (!context.ProtocolMessage.Parameters.ContainsKey("claims"))
         {
             context.ProtocolMessage.SetParameter(
             "claims",

@@ -34,7 +34,7 @@ services.AddHttpClient();
 services.AddOptions();
 
 services.AddMicrosoftIdentityWebAppAuthentication(configuration, "AzureAd", subscribeToOpenIdConnectMiddlewareDiagnosticsEvents: true)
-    .EnableTokenAcquisitionToCallDownstreamApi(new[] { "api://7c839e15-096b-4abb-a869-df9e6b34027c/access_as_user" })
+    .EnableTokenAcquisitionToCallDownstreamApi(["api://7c839e15-096b-4abb-a869-df9e6b34027c/access_as_user"])
     .AddMicrosoftGraph(configuration.GetSection("GraphBeta"))
     .AddDistributedTokenCaches();
 
