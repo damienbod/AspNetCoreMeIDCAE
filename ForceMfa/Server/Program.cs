@@ -40,13 +40,16 @@ services.AddMicrosoftIdentityWebAppAuthentication(configuration)
     .AddMicrosoftGraph("https://graph.microsoft.com/v1.0", scopes)
     .AddInMemoryTokenCaches();
 
-services.AddAuthorization(options =>
-{
-    options.AddPolicy("ca-mfa", policy =>
+builder.Services.AddSecurityHeaderPolicies()
+    .SetDefaultPolicy(SecurityHeadersDefinitions.GetHeaderPolicyCollection(
+        env.IsDevelopment(),
+        configuration["AzureAd:Instance"]));
+
+services.AddAuthorizationBuilder()
+    .AddPolicy("ca-mfa", policy =>
     {
         policy.RequireClaim("acrs", AuthContextId.C1);
     });
-});
 
 services.AddControllersWithViews(options =>
     options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()));
@@ -90,9 +93,7 @@ else
     app.UseExceptionHandler("/Error");
 }
 
-app.UseSecurityHeaders(
-    SecurityHeadersDefinitions.GetHeaderPolicyCollection(env.IsDevelopment(),
-        configuration["AzureAd:Instance"]));
+app.UseSecurityHeaders();
 
 app.UseHttpsRedirection();
 app.UseBlazorFrameworkFiles();

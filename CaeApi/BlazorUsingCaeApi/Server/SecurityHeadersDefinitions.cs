@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.Graph.WindowsUpdates;
-
-namespace Blazor.CAE.RequireMfa.Server;
+﻿namespace Blazor.CAE.RequireMfa.Server;
 
 public static class SecurityHeadersDefinitions
 {

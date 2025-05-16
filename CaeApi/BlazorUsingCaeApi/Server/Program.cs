@@ -38,6 +38,11 @@ services.AddMicrosoftIdentityWebAppAuthentication(configuration, "AzureAd", subs
     .AddMicrosoftGraph(configuration.GetSection("GraphBeta"))
     .AddDistributedTokenCaches();
 
+builder.Services.AddSecurityHeaderPolicies()
+    .SetDefaultPolicy(SecurityHeadersDefinitions.GetHeaderPolicyCollection(
+        env.IsDevelopment(),
+        configuration["AzureAd:Instance"]));
+
 services.AddControllersWithViews(options =>
     options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()));
 
@@ -61,9 +66,7 @@ else
     app.UseExceptionHandler("/Error");
 }
 
-app.UseSecurityHeaders(
-    SecurityHeadersDefinitions.GetHeaderPolicyCollection(env.IsDevelopment(),
-        configuration["AzureAd:Instance"]));
+app.UseSecurityHeaders();
 
 app.UseHttpsRedirection();
 app.UseBlazorFrameworkFiles();
