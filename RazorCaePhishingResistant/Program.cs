@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
-using RazorCaePhishingResistant;
+using RazorCaePhishingResistant.Cae;
 
 var builder = WebApplication.CreateBuilder(args);
 

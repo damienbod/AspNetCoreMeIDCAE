@@ -1,17 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using RazorCaePhishingResistant.Cae;
 
 namespace RazorCaePhishingResistant.Pages;
 
-public class AdminModel : PageModel
+public class AdminModel(CaeClaimsChallengeService caeClaimsChallengeService) : PageModel
 {
-    private readonly CaeClaimsChallengeService _caeClaimsChallengeService;
-
-    public AdminModel(CaeClaimsChallengeService caeClaimsChallengeService)
-    {
-        _caeClaimsChallengeService = caeClaimsChallengeService;
-    }
+    private readonly CaeClaimsChallengeService _caeClaimsChallengeService = caeClaimsChallengeService;
 
     [BindProperty]
     public IEnumerable<string>? Data { get; private set; }
@@ -31,11 +27,11 @@ public class AdminModel : PageModel
             return Challenge(properties);
         }
 
-        Data = new List<string>()
-        {
+        Data =
+        [
             "Admin data 1",
             "Admin data 2"
-        };
+        ];
 
         return Page();
     }

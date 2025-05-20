@@ -1,4 +1,4 @@
-﻿namespace RazorCaePhishingResistant;
+﻿namespace RazorCaePhishingResistant.Cae;
 
 public static class AuthContextId
 {

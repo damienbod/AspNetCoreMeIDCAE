@@ -1,4 +1,4 @@
-﻿namespace RazorCaeStandalone;
+﻿namespace RazorCaeStandalone.Cae;
 
 public static class AuthContextId
 {

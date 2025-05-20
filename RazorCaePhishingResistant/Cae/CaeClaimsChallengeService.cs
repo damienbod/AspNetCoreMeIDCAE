@@ -1,4 +1,4 @@
-﻿namespace RazorCaePhishingResistant;
+﻿namespace RazorCaePhishingResistant.Cae;
 
 /// <summary>
 /// Claims challenges, claims requests, and client capabilities

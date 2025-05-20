@@ -1,4 +1,4 @@
-﻿namespace RazorCaeStandalone;
+﻿namespace RazorCaeStandalone.Cae;
 
 /// <summary>
 /// Claims challenges, claims requests, and client capabilities
@@ -8,14 +8,9 @@
 /// Applications that use enhanced security features like Continuous Access Evaluation (CAE) 
 /// and Conditional Access authentication context must be prepared to handle claims challenges.
 /// </summary>
-public class CaeClaimsChallengeService
+public class CaeClaimsChallengeService(IConfiguration configuration)
 {
-    private readonly IConfiguration _configuration;
-
-    public CaeClaimsChallengeService(IConfiguration configuration)
-    {
-        _configuration = configuration;
-    }
+    private readonly IConfiguration _configuration = configuration;
 
     public string? CheckForRequiredAuthContextIdToken(string authContextId, HttpContext context)
     {

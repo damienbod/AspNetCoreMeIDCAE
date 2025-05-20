@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using RazorCaeStandalone.Cae;
 
 namespace RazorCaeStandalone.Pages;
 
@@ -30,11 +31,11 @@ public class AdminModel : PageModel
             return Challenge(properties);
         }
 
-        Data = new List<string>()
-        {
+        Data =
+        [
             "Admin data 1",
             "Admin data 2"
-        };
+        ];
 
         return Page();
     }
